@@ -8,19 +8,26 @@
   <script src="export.js"></script>
   <script src="title.js"></script>
 <script src="effects.js"></script>
+  <script src="load.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <pre>██████╗ ███████╗██╗   ██╗        ██╗  ██╗██╗ ██████╗██╗  ██╗    ██████╗ ██████╗  █████╗ ███╗   ███╗ █████╗ 
+██╔══██╗██╔════╝╚██╗ ██╔╝        ██║ ██╔╝██║██╔════╝██║ ██╔╝    ██╔══██╗██╔══██╗██╔══██╗████╗ ████║██╔══██╗
+██████╔╝███████╗ ╚████╔╝         █████╔╝ ██║██║     █████╔╝     ██║  ██║██████╔╝███████║██╔████╔██║███████║
+██╔═══╝ ╚════██║  ╚██╔╝          ██╔═██╗ ██║██║     ██╔═██╗     ██║  ██║██╔══██╗██╔══██║██║╚██╔╝██║██╔══██║
+██║     ███████║   ██║   ███████╗██║  ██╗██║╚██████╗██║  ██╗    ██████╔╝██║  ██║██║  ██║██║ ╚═╝ ██║██║  ██║
+╚═╝     ╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
+                                                                                                           </pre>
 <div style="display: flex; align-items: center; gap: 10px;">
   <button id="startAudio">Start</button>
   <h1>Psy_Kick Drama - V 0.1.0</h1>
 </div>
 <h5><span id="pWord">Percussive</span> <span id="sWord">Sequencer</span> <span id="yWord">Yielding</span> <span id="kWord">Khaos</span>. <span id="iWord">Its</span> <span id="cWord">Core</span> <span id="gWord">Gross</span> <span id="dWord">Drumming</span> <span id="rWord">Rhythms</span>, <span id="bWord">bear</span> <span id="mWord">Musical</span> <span id="aWord">Absurdity</span>.</h5>  
-<div class="preset-buttons">
-  <button id="savePresetButton">SAVE PROJECT</button>
-  <input type="file" id="loadPreset" accept=".json" style="display: none;">
-  <button id="loadPresetButton">LOAD PROJECT</button>
-</div>
+ <div class="button-container">
+    <button class="custom-button save-button">SAVE PROJECT</button>
+    <button class="custom-button load-button">LOAD PROJECT</button>
+  </div>  
 <div class="pattern-container">
     <h2>Pattern Manager:</h2>
 </div>
@@ -36,9 +43,9 @@
 </div>  
 <div class="patterns-list"></div>
 <h2>Pattern Sequencer:</h2>
-<button id="songPlayButton"></button>  
-<div id="songSequencerContainer">
+ <div id="songSequencerContainer">
   <div class="pattern-row" id="songSequencerRows" data-row="0">
+    <button id="songPlayButton"></button> 
     <span class="loop-label">LOOP:</span>
     <div class="loop-toggle" data-state="off"></div>
     <input type="text" class="loop-count-input" value="1">
@@ -146,7 +153,7 @@
 </div>
 <h5>Sample Sequencer:</h5>   
 <div class="track-row">
-<div class="pad" data-sound="extra" data-note="D2">9</div>
+<div class="pad" data-sound="extra" data-note="D2">9</div>  
 <input type="text" class="name-input" data-sound="extra" value="Extra">
 <input type="file" class="sample-input" data-sound="extra" data-note="D2" accept="audio/wav,audio/*" style="display: none;">
 <div class="lock-pad" data-sound="extra">L</div>
@@ -154,7 +161,41 @@
 <div class="sequencer" data-track="extra"></div>
 <div class="solo-pad" data-sound="extra">S</div>
 <div class="mute-pad" data-sound="extra">M</div>
+<div class="extra-mode-toggle" data-mode="step" data-sound="extra" style="display: flex;">STEP</div>  
 </div>
+<div class="track-row">
+<div class="pad" data-sound="extra2" data-note="E2">10</div>  
+<input type="text" class="name-input" data-sound="extra2" value="Extra2">
+<input type="file" class="sample-input" data-sound="extra2" data-note="E2" accept="audio/wav,audio/*" style="display: none;">
+<div class="lock-pad" data-sound="extra2">L</div>
+<input type="number" class="track-steps-input" data-sound="extra2" min="0" max="32" step="1" value="16">
+<div class="sequencer" data-track="extra2"></div>
+<div class="solo-pad" data-sound="extra2">S</div>
+<div class="mute-pad" data-sound="extra2">M</div>
+<div class="extra-mode-toggle" data-mode="step" data-sound="extra2" style="display: flex;">STEP</div>  
+</div>
+<div class="track-row">
+<div class="pad" data-sound="extra3" data-note="F2">11</div>  
+<input type="text" class="name-input" data-sound="extra3" value="Extra3">
+<input type="file" class="sample-input" data-sound="extra3" data-note="F2" accept="audio/wav,audio/*" style="display: none;">
+<div class="lock-pad" data-sound="extra3">L</div>
+<input type="number" class="track-steps-input" data-sound="extra3" min="0" max="32" step="1" value="16">
+<div class="sequencer" data-track="extra3"></div>
+<div class="solo-pad" data-sound="extra3">S</div>
+<div class="mute-pad" data-sound="extra3">M</div>
+<div class="extra-mode-toggle" data-mode="step" data-sound="extra3" style="display: flex;">STEP</div> 
+</div>
+<div class="track-row">
+<div class="pad" data-sound="extra4" data-note="G2">12</div>  
+<input type="text" class="name-input" data-sound="extra4" value="Extra4">
+<input type="file" class="sample-input" data-sound="extra4" data-note="G2" accept="audio/wav,audio/*" style="display: none;">
+<div class="lock-pad" data-sound="extra4">L</div>
+<input type="number" class="track-steps-input" data-sound="extra4" min="0" max="32" step="1" value="16">
+<div class="sequencer" data-track="extra4"></div>
+<div class="solo-pad" data-sound="extra4">S</div>
+<div class="mute-pad" data-sound="extra4">M</div>
+<div class="extra-mode-toggle" data-mode="step" data-sound="extra4" style="display: flex;">STEP</div> 
+</div>  
 </div>
 <h2>Sound Settings:</h2>
 <div id="secondarySequencer">
@@ -166,7 +207,6 @@
 <div class="extra-toggle" data-mode="extra" style="display: none; background-color: #909B20;"></div>
 <input type="text" class="secondary-name" value="None" readonly>
 <div class="mono-poly-toggle" data-mode="mono">MONO</div>
-<div class="extra-mode-toggle" data-mode="step" style="display: none; background-color: purple;">STEP</div>  
 </div>
 <div class="secondary-track-row">
   <label for="substepsInput">SUBSTEPS:</label>
@@ -223,10 +263,194 @@
   <div class="save-pad track-toggle" data-track="crash" data-state="off" onclick="toggleTrackPad('crash')">7</div>
   <div class="save-pad track-toggle" data-track="cowbell" data-state="off" onclick="toggleTrackPad('cowbell')">8</div>
   <div class="save-pad track-toggle" data-track="extra" data-state="off" onclick="toggleTrackPad('extra')">9</div>
+  <div class="save-pad track-toggle" data-track="extra2" data-state="off" onclick="toggleTrackPad('extra2')">10</div>
+  <div class="save-pad track-toggle" data-track="extra3" data-state="off" onclick="toggleTrackPad('extra3')">11</div>
+  <div class="save-pad track-toggle" data-track="extra4" data-state="off" onclick="toggleTrackPad('extra4')">12</div>
 </div>  
-<div id="tooltip"></div>
-
 <script>
+  
+  const patternBPMs = {
+  A1: 120
+};
+
+// Cache to store effect nodes for each step
+const extraEffectNodesCache = { extra: {} }; // [track][pattern][step] -> {pitchShift, distortion, delay, delayFilter, panner, gain}   
+  
+let currentPattern = "A1";
+let patterns = ["A1"];
+let isPlaying = false; // Add this line
+const maxPatterns = 128;
+const allPatterns = [
+  "A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1", "J1", "K1", "L1", "M1", "N1", "O1", "P1",
+  "A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", "I2", "J2", "K2", "L2", "M2", "N2", "O2", "P2",
+  "A3", "B3", "C3", "D3", "E3", "F3", "G3", "H3", "I3", "J3", "K3", "L3", "M3", "N3", "O3", "P3",
+  "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "I4", "J4", "K4", "L4", "M4", "N4", "O4", "P4",
+  "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "I5", "J5", "K5", "L5", "M5", "N5", "O5", "P5",
+  "A6", "B6", "C6", "D6", "E6", "F6", "G6", "H6", "I6", "J6", "K6", "L6", "M6", "N6", "O6", "P6",
+  "A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", "I7", "J7", "K7", "L7", "M7", "N7", "O7", "P7",
+  "A8", "B8", "C8", "D8", "E8", "F8", "G8", "H8", "I8", "J8", "K8", "L8", "M8", "N8", "O8", "P8"
+];
+
+const subdivisions = [
+  { label: "1n", value: 0, time: "1n" },
+  { label: "1n.", value: 1, time: "1n." },
+  { label: "2n", value: 2, time: "2n" },
+  { label: "2n.", value: 3, time: "2n." },
+  { label: "4n", value: 4, time: "4n" },
+  { label: "4n.", value: 5, time: "4n." },
+  { label: "4t", value: 6, time: "4t" },
+  { label: "8n", value: 7, time: "8n" },
+  { label: "8n.", value: 8, time: "8n." },
+  { label: "8t", value: 9, time: "8t" },
+  { label: "16n", value: 10, time: "16n" },
+  { label: "16n.", value: 11, time: "16n." },
+  { label: "16t", value: 12, time: "16t" },
+  { label: "32n", value: 13, time: "32n" },
+  { label: "32n.", value: 14, time: "32n." },
+  { label: "32t", value: 15, time: "32t" }
+];
+  
+tracks.forEach(track => {
+  variationSubSequences[track] = {};
+  mainSubSequences[track] = {};
+  mainSubstepCounts[track] = {};
+  variationSubstepCounts[track] = {};
+  mainPanning[track] = {};
+  variationPanning[track] = {};
+  mainVolumes[track] = {};
+  variationVolumes[track] = {};
+  mainDistortionWet[track] = {};
+  variationDistortionWet[track] = {};
+  mainDelayMix[track] = {};
+  variationDelayMix[track] = {};
+  mainDelayFeedback[track] = {};
+  variationDelayFeedback[track] = {};
+  mainDelayTime[track] = {};
+  variationDelayTime[track] = {};
+  mainDelayFilterFreq[track] = {};
+  variationDelayFilterFreq[track] = {};
+  mainMonoPoly[track] = {};
+  variationMonoPoly[track] = {};
+  mainPitch[track] = {};
+  variationPitch[track] = {};
+  mainPitchMix[track] = {};
+  variationPitchMix[track] = {};
+  mainPanners[track] = new Tone.Panner(0).toDestination();
+  variationPanners[track] = new Tone.Panner(0).toDestination();
+  mainGains[track] = new Tone.Gain(0.8).toDestination();
+  variationGains[track] = new Tone.Gain(0.8).toDestination();
+  mainDistortions[track] = new Tone.Distortion({ distortion: 0.5, wet: 0 }).toDestination();
+  variationDistortions[track] = new Tone.Distortion({ distortion: 0.5, wet: 0 }).toDestination();
+  mainDelays[track] = new Tone.FeedbackDelay({ delayTime: subdivisions[4].time, feedback: 0.3, wet: 0 }).toDestination();
+  variationDelays[track] = new Tone.FeedbackDelay({ delayTime: subdivisions[4].time, feedback: 0.3, wet: 1 }).toDestination();
+  mainDelayGains[track] = new Tone.Gain(0).toDestination();
+  variationDelayGains[track] = new Tone.Gain(0).toDestination();
+  mainDelayFilters[track] = new Tone.Filter({ frequency: 5000, type: "lowpass" }).toDestination();
+  variationDelayFilters[track] = new Tone.Filter({ frequency: 5000, type: "lowpass" }).toDestination();
+  mainPitchShifters[track] = new Tone.PitchShift({ pitch: 0, wet: 0 }).toDestination();
+  variationPitchShifters[track] = new Tone.PitchShift({ pitch: 0, wet: 0 }).toDestination();
+  extraStepSamples[track] = {};
+  extraStepSamplers[track] = {};
+  extraPanning[track] = {};
+  extraVolumes[track] = {};
+  extraPitch[track] = {};
+  extraPitchMix[track] = {};
+  extraDistortionWet[track] = {};
+  extraDelayMix[track] = {};
+  extraDelayFeedback[track] = {};
+  extraDelayTime[track] = {};
+  extraDelayFilterFreq[track] = {};
+  extraMonoPoly[track] = {};
+  if (!extraEffectNodesCache[track]) {
+  extraEffectNodesCache[track] = {};
+}
+allPatterns.forEach(pattern => {
+  if (!extraEffectNodesCache[track][pattern]) {
+    extraEffectNodesCache[track][pattern] = {};
+  }
+});
+  trackStepCounts[track] = 16;
+  trackStepLocks[track] = false;
+  trackSoloStates[track] = false;
+  trackMuteStates[track] = false;
+  samplers[track] = new Tone.Sampler({ urls: {} }).toDestination();
+  sequence[track] = {};
+
+  allPatterns.forEach(pattern => {
+    variationSubSequences[track][pattern] = Array(32).fill(false);
+    variationSubSequences[track][pattern][0] = true;
+    variationSubstepCounts[track][pattern] = 1;
+    mainSubSequences[track][pattern] = Array(32).fill(false);
+    mainSubSequences[track][pattern][0] = true;
+    mainSubstepCounts[track][pattern] = 1;
+    mainPanning[track][pattern] = 0;
+    variationPanning[track][pattern] = 0;
+    mainVolumes[track][pattern] = 0.8;
+    variationVolumes[track][pattern] = 0.8;
+    mainDistortionWet[track][pattern] = 0;
+    variationDistortionWet[track][pattern] = 0;
+    mainDelayMix[track][pattern] = 0;
+    variationDelayMix[track][pattern] = 0;
+    mainDelayFeedback[track][pattern] = 0.3;
+    variationDelayFeedback[track][pattern] = 0.3;
+    mainDelayTime[track][pattern] = 4; // Matches subdivisions[4].time = "4n"
+    variationDelayTime[track][pattern] = 4; // Matches subdivisions[4].time = "4n"
+    mainDelayFilterFreq[track][pattern] = 5000;
+    variationDelayFilterFreq[track][pattern] = 5000;
+    mainMonoPoly[track][pattern] = "mono";
+    variationMonoPoly[track][pattern] = "mono";
+    mainPitch[track][pattern] = 0;
+    variationPitch[track][pattern] = 0;
+    mainPitchMix[track][pattern] = 0;
+    variationPitchMix[track][pattern] = 0;
+    extraStepSamples[track][pattern] = Array(32).fill(null);
+    extraStepSamplers[track][pattern] = Array(32).fill(null);
+    extraPanning[track][pattern] = Array(32).fill(0);
+    extraVolumes[track][pattern] = Array(32).fill(0.8);
+    extraPitch[track][pattern] = Array(32).fill(0);
+    extraPitchMix[track][pattern] = Array(32).fill(1);
+    extraDistortionWet[track][pattern] = Array(32).fill(0);
+    extraDelayMix[track][pattern] = Array(32).fill(0);
+    extraDelayFeedback[track][pattern] = Array(32).fill(0.3);
+    extraDelayTime[track][pattern] = Array(32).fill(4); // Matches subdivisions[4].time = "4n"
+    extraDelayFilterFreq[track][pattern] = Array(32).fill(5000);
+    extraMonoPoly[track][pattern] = "step";
+    sequence[track][pattern] = Array(32).fill(false);
+  });
+});
+  
+  const loadedSamples = {
+  C1: null,
+  D1: null,
+  E1: null,
+  F1: null,
+  G1: null,
+  A1: null,
+  B1: null,
+  C2: null,
+  D2: null,
+  E2: null,
+  F2: null,
+  G2: null
+};
+const soundNames = {
+  C1: "Empty 1",
+  D1: "Empty 2",
+  E1: "Empty 3",
+  F1: "Empty 4",
+  G1: "Empty 5",
+  A1: "Empty 6",
+  B1: "Empty 7",
+  C2: "Empty 8",
+  D2: "Sampler 1",
+  E2: "Sampler 2",
+  F2: "Sampler 3",
+  G2: "Sampler 4"
+};
+
+document.getElementById('startAudio').addEventListener('click', function() {
+  document.querySelector('pre').classList.toggle('active-logo');
+});  
   
 function createPatternBoxes() {
   const patternsList = document.querySelector(".patterns-list");
@@ -252,6 +476,14 @@ function updatePatternsList() {
     patternBox.addEventListener("click", () => {
       if (!patterns.includes(pattern)) return;
       currentPattern = pattern;
+      ["extra", "extra2", "extra3", "extra4"].forEach(track => {
+  const toggle = document.querySelector(`.extra-mode-toggle[data-sound="${track}"]`);
+  if (toggle) {
+    const mode = extraMonoPoly[track][currentPattern] || "step";
+    toggle.dataset.mode = mode;
+    toggle.textContent = mode.toUpperCase();
+  }
+});
       updatePatternDisplay();
       document.querySelectorAll(".pattern-box").forEach(box => {
         box.classList.toggle("selected", box.dataset.pattern === pattern);
@@ -313,16 +545,26 @@ let clickSampler = new Tone.Sampler({
   urls: {},
   onerror: (error) => console.error(`Click sampler failed to load: ${error}`)
 }).toDestination();
-
-Object.keys(variationSubSequences).forEach(track => variationSubSequences[track].A1[0] = true);
+  
+// Initialize variationSubSequences for all tracks and patterns
+tracks.forEach(track => {
+  if (!variationSubSequences[track]) {
+    variationSubSequences[track] = {};
+  }
+  if (!variationSubSequences[track][currentPattern]) {
+    variationSubSequences[track][currentPattern] = Array(32).fill(false);
+    variationSubSequences[track][currentPattern][0] = true;
+  }
+});
 
 // Define data structures for extra track subsequencer
 const extraSubSequences = { extra: {} }; // Stores subsequences for extra track steps [track][pattern][step][index]
 const extraSubstepCounts = { extra: {} }; // Stores substep counts for extra track steps [track][pattern][step]
-
+// Cache to store effect nodes for each step
+   
 // Initialize extra track subsequencer data for a pattern
 function initializeExtraSubSequence(track, pattern, step) {
-  if (track !== "extra") return;
+    if (!["extra", "extra2", "extra3", "extra4"].includes(track)) return;
   
   // Initialize extraSubSequences
   if (!extraSubSequences[track]) {
@@ -355,11 +597,13 @@ let clickActive = false;
 let measures = 4;
 let globalStepIndex = 0;
   
+let activeExtraPlayers = {};  
+  
 const patternMeasures = {
   A1: 4
 };  
 
-const notes = ["C1", "D1", "E1", "F1", "G1", "A1", "B1", "C2", "D2"];
+const notes = ["C1", "D1", "E1", "F1", "G1", "A1", "B1", "C2", "D2", "E2", "F2", "G2"];
 const sequencerDiv = document.getElementById("sequencer");
 tracks.forEach(track => {
   const trackDiv = sequencerDiv.querySelector(`[data-track="${track}"]`);
@@ -380,71 +624,105 @@ tracks.forEach(track => {
   }
 });
   
+// Modified handleExtraStepSample function
 function handleExtraStepSample(track, step, file) {
-  if (track !== "extra" || !file || !file.type.startsWith("audio/")) {
-    alert(`Skipped ${file ? file.name : "unknown"}: Not an audio file or not extra track`);
+  if (!["extra", "extra2", "extra3", "extra4"].includes(track) || !file || !file.type.startsWith("audio/")) {
+    alert(`Skipped ${file ? file.name : "unknown"}: Not an audio file or not an extra track`);
     return;
   }
   const url = URL.createObjectURL(file);
-  extraStepSamples[track][currentPattern][step] = file.name; 
-extraStepSamplers[track][currentPattern][step] = new Tone.Player({
-  url: url,
-  autostart: false,
-  onload: () => {
-    console.log(`Sample loaded for extra track, step ${step}`);
-    const stepEl = document.querySelector(`[data-track="extra"][data-step="${step}"]`);
-    stepEl.dataset.sampleLoaded = "true";
-    const isMeasureStep = step % measures === 0 && stepEl.classList.contains("enabled");
-    stepEl.classList.toggle("measure-highlight", isMeasureStep && !sequence[track][currentPattern][step] && !clickActive);
-    stepEl.classList.toggle("measure-highlight-active", isMeasureStep && !sequence[track][currentPattern][step] && clickActive);
-    
-    const pitchShift = new Tone.PitchShift({
-      pitch: extraPitch[track][currentPattern][step] || 0,
-      wet: extraPitchMix[track][currentPattern][step] || 1
-    });
-    const distortion = new Tone.Distortion({
-      distortion: 0.5,
-      wet: extraDistortionWet[track][currentPattern][step] || 0
-    });
-    const delay = new Tone.FeedbackDelay({
-      delayTime: subdivisions[extraDelayTime[track][currentPattern][step] || 3]?.time || "4n",
-      feedback: extraDelayFeedback[track][currentPattern][step] || 0.3,
-      wet: extraDelayMix[track][currentPattern][step] || 0
-    });
-    const delayFilter = new Tone.Filter({
-      frequency: extraDelayFilterFreq[track][currentPattern][step] || 5000,
-      type: "lowpass"
-    });
-    const panner = new Tone.Panner(extraPanning[track][currentPattern][step] || 0);
-    const gain = new Tone.Gain(extraVolumes[track][currentPattern][step] || 0.8);
-    extraStepSamplers[track][currentPattern][step].chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
-    
-    updateSoundSettingsUI();
-  },
-  onerror: (error) => {
-    console.error(`Failed to load sample for extra track, step ${step}: ${error}`);
-    extraStepSamples[track][currentPattern][step] = null;
+  extraStepSamples[track][currentPattern][step] = file.name;
+  if (!activeExtraPlayers[track]) activeExtraPlayers[track] = {};
+  if (!activeExtraPlayers[track][step]) activeExtraPlayers[track][step] = [];
+
+  // Dispose of existing player if it exists
+  if (extraStepSamplers[track][currentPattern][step]) {
+    extraStepSamplers[track][currentPattern][step].dispose();
     extraStepSamplers[track][currentPattern][step] = null;
   }
-});
+
+  extraStepSamplers[track][currentPattern][step] = new Tone.Player({
+    url: url,
+    autostart: false,
+    onload: () => {
+      console.log(`Sample loaded for ${track} track, step ${step}`);
+      URL.revokeObjectURL(url); // Revoke URL after loading
+      const stepEl = document.querySelector(`[data-track="${track}"][data-step="${step}"]`);
+      stepEl.dataset.sampleLoaded = "true";
+      const isMeasureStep = step % measures === 0 && stepEl.classList.contains("enabled");
+      stepEl.classList.toggle("measure-highlight", isMeasureStep && !sequence[track][currentPattern][step] && !clickActive);
+      stepEl.classList.toggle("measure-highlight-active", isMeasureStep && !sequence[track][currentPattern][step] && clickActive);
+
+      // Check if cached effect nodes exist for this step
+      if (!extraEffectNodesCache[track][currentPattern]) {
+        extraEffectNodesCache[track][currentPattern] = {};
+      }
+      if (!extraEffectNodesCache[track][currentPattern][step]) {
+        extraEffectNodesCache[track][currentPattern][step] = {
+          pitchShift: new Tone.PitchShift({ pitch: extraPitch[track][currentPattern][step] || 0, wet: extraPitchMix[track][currentPattern][step] || 1 }),
+          distortion: new Tone.Distortion({ distortion: 0.5, wet: extraDistortionWet[track][currentPattern][step] || 0 }),
+          delay: new Tone.FeedbackDelay({
+            delayTime: subdivisions[extraDelayTime[track][currentPattern][step] || 3]?.time || "4n",
+            feedback: extraDelayFeedback[track][currentPattern][step] || 0.3,
+            wet: extraDelayMix[track][currentPattern][step] || 0
+          }),
+          delayFilter: new Tone.Filter({ frequency: extraDelayFilterFreq[track][currentPattern][step] || 5000, type: "lowpass" }),
+          panner: new Tone.Panner(extraPanning[track][currentPattern][step] || 0),
+          gain: new Tone.Gain(extraVolumes[track][currentPattern][step] || 0.8)
+        };
+      }
+
+      // Get cached effect nodes
+      const { pitchShift, distortion, delay, delayFilter, panner, gain } = extraEffectNodesCache[track][currentPattern][step];
+
+      // Update effect parameters
+      pitchShift.pitch = extraPitch[track][currentPattern][step] || 0;
+      pitchShift.wet.setValueAtTime(extraPitchMix[track][currentPattern][step] || 1, Tone.now());
+      distortion.wet.setValueAtTime(extraDistortionWet[track][currentPattern][step] || 0, Tone.now());
+      delay.delayTime.setValueAtTime(subdivisions[extraDelayTime[track][currentPattern][step] || 3]?.time || "4n", Tone.now());
+      delay.feedback.setValueAtTime(extraDelayFeedback[track][currentPattern][step] || 0.3, Tone.now());
+      delay.wet.setValueAtTime(extraDelayMix[track][currentPattern][step] || 0, Tone.now());
+      delayFilter.frequency.setValueAtTime(extraDelayFilterFreq[track][currentPattern][step] || 5000, Tone.now());
+      panner.pan.setValueAtTime(extraPanning[track][currentPattern][step] || 0, Tone.now());
+      gain.gain.setValueAtTime(extraVolumes[track][currentPattern][step] || 0.8, Tone.now());
+
+      // Connect the player to the cached effect chain
+      extraStepSamplers[track][currentPattern][step].chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
+
+      updateSoundSettingsUI();
+    },
+    onerror: (error) => {
+      console.error(`Failed to load sample for ${track} track, step ${step}: ${error}`);
+      extraStepSamples[track][currentPattern][step] = null;
+      extraStepSamplers[track][currentPattern][step] = null;
+      activeExtraPlayers[track][step] = [];
+      URL.revokeObjectURL(url); // Revoke URL on error
+    }
+  });
 }
 
 function handleExtraToggleSample(track, file) {
-  if (track !== "extra" || !file || !file.type.startsWith("audio/")) {
-    alert(`Skipped ${file ? file.name : "unknown"}: Not an audio file or not extra track`);
+  if (!["extra", "extra2", "extra3", "extra4"].includes(track) || !file || !file.type.startsWith("audio/")) {
+    alert(`Skipped ${file ? file.name : "unknown"}: Not an audio file or not an extra track`);
     return;
   }
   const url = URL.createObjectURL(file);
   const stepCount = trackStepCounts[track] || 16;
   for (let step = 0; step < stepCount; step++) {
-    if (!extraStepSamples[track][currentPattern][step]) {
+    if (!extraStepSamples[track][currentPattern][step]) { // Only load into empty steps
       extraStepSamples[track][currentPattern][step] = file.name;
+      // Dispose of any existing player to avoid conflicts
+      if (extraStepSamplers[track][currentPattern][step]) {
+        extraStepSamplers[track][currentPattern][step].dispose();
+        extraStepSamplers[track][currentPattern][step] = null;
+      }
       extraStepSamplers[track][currentPattern][step] = new Tone.Player({
         url: url,
         autostart: false,
         onload: () => {
-          console.log(`Sample loaded for extra track, step ${step}`);
-          const stepEl = document.querySelector(`[data-track="extra"][data-step="${step}"]`);
+          console.log(`Sample loaded for ${track} track, step ${step}`);
+          URL.revokeObjectURL(url); // Revoke URL after loading
+          const stepEl = document.querySelector(`[data-track="${track}"][data-step="${step}"]`);
           stepEl.dataset.sampleLoaded = "true";
           const isMeasureStep = step % measures === 0 && stepEl.classList.contains("enabled");
           stepEl.classList.toggle("measure-highlight", isMeasureStep && !sequence[track][currentPattern][step] && !clickActive);
@@ -469,29 +747,40 @@ function handleExtraToggleSample(track, file) {
           });
           const panner = new Tone.Panner(extraPanning[track][currentPattern][step] || 0);
           const gain = new Tone.Gain(extraVolumes[track][currentPattern][step] || 0.8);
+          extraEffectNodesCache[track][currentPattern][step] = { pitchShift, distortion, delay, delayFilter, panner, gain };
           extraStepSamplers[track][currentPattern][step].chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
 
-          updateSoundSettingsUI();
+          // Initialize subsequencer data for the step
+          initializeExtraSubSequence(track, currentPattern, step);
+          if (selectedExtraStep === step) {
+            updateSubSteps(track);
+            updateSoundSettingsUI();
+          }
         },
         onerror: (error) => {
-          console.error(`Failed to load sample for extra track, step ${step}: ${error}`);
+          console.error(`Failed to load sample for ${track} track, step ${step}: ${error}`);
           extraStepSamples[track][currentPattern][step] = null;
           extraStepSamplers[track][currentPattern][step] = null;
+          URL.revokeObjectURL(url); // Revoke URL on error
         }
       });
     }
   }
-}  
+}
   
-document.querySelector(`.sample-input[data-sound="extra"]`).addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  const step = e.target.dataset.step;
-  if (file && step !== undefined && !isNaN(parseInt(step))) {
-    handleExtraStepSample("extra", parseInt(step), file);
-  } else if (file) {
-    handleExtraToggleSample("extra", file);
-  }
-  e.target.value = "";
+document.querySelectorAll(`.sample-input[data-sound="extra"], .sample-input[data-sound="extra2"], .sample-input[data-sound="extra3"], .sample-input[data-sound="extra4"]`).forEach(input => {
+  input.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    const step = e.target.dataset.step;
+    const track = e.target.dataset.sound;
+    if (file && step !== undefined && !isNaN(parseInt(step))) {
+      handleExtraStepSample(track, parseInt(step), file);
+    } else if (file) {
+      handleExtraToggleSample(track, file);
+    }
+    e.target.value = "";
+    delete e.target.dataset.step;
+  });
 });
   
 const secondarySequencerDiv = document.getElementById("secondarySequencer");
@@ -724,37 +1013,33 @@ monoPolyToggle.addEventListener("click", () => {
   }
 });
 
-const extraModeToggle = document.querySelector(".extra-mode-toggle");
-
-extraModeToggle.addEventListener("click", () => {
-  if (!audioStarted || selectedSound !== "extra") {
-    alert("Please click 'Start Audio' and select the extra track first!");
-    return;
-  }
-  let currentMode = extraModeToggle.dataset.mode;
-  let newMode;
-  if (currentMode === "step") {
-    newMode = "next";
-  } else if (currentMode === "next") {
-    newMode = "full";
-  } else {
-    newMode = "step";
-  }
-  extraModeToggle.dataset.mode = newMode;
-  extraModeToggle.textContent = newMode.toUpperCase();
-  extraMonoPoly[selectedSound][currentPattern] = newMode;
-});  
+document.querySelectorAll(".extra-mode-toggle").forEach(toggle => {
+  toggle.addEventListener("click", () => {
+    const track = toggle.dataset.sound;
+    if (!audioStarted || !["extra", "extra2", "extra3", "extra4"].includes(track)) return;
+    let currentMode = toggle.dataset.mode;
+    let newMode;
+    if (currentMode === "step") {
+      newMode = "next";
+    } else if (currentMode === "next") {
+      newMode = "full";
+    } else {
+      newMode = "step";
+    }
+    toggle.dataset.mode = newMode;
+    toggle.textContent = newMode.toUpperCase();
+    extraMonoPoly[track][currentPattern] = newMode;
+  });
+});
   
 panInput.addEventListener("input", () => {
   if (!audioStarted || !selectedSound) return;
   const panValue = parseFloat(panInput.value);
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraPanning[selectedSound][currentPattern][selectedExtraStep] = panValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
-      const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
-      player.disconnect(); 
-      const panner = new Tone.Panner(panValue).toDestination();
-      player.connect(panner); 
+      const { panner } = extraEffectNodesCache[selectedSound][currentPattern][selectedExtraStep];
+      panner.pan.setValueAtTime(panValue, Tone.now());
     }
   } else if (isVariationSubsequencer) {
     variationPanning[selectedSound][currentPattern] = panValue;
@@ -767,7 +1052,7 @@ panInput.addEventListener("input", () => {
 panInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   panInput.value = 0;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraPanning[selectedSound][currentPattern][selectedExtraStep] = 0;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -787,7 +1072,7 @@ panInput.addEventListener("dblclick", () => {
 volumeInput.addEventListener("input", () => {
   if (!audioStarted || !selectedSound) return;
   const volumeValue = parseFloat(volumeInput.value);
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraVolumes[selectedSound][currentPattern][selectedExtraStep] = volumeValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -804,7 +1089,7 @@ volumeInput.addEventListener("input", () => {
 volumeInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   volumeInput.value = 0.8;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraVolumes[selectedSound][currentPattern][selectedExtraStep] = 0.8;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -823,7 +1108,7 @@ const distortionInput = document.getElementById("distortionInput");
 distortionInput.addEventListener("input", () => {
   if (!audioStarted || !selectedSound) return;
   const distortionValue = parseFloat(distortionInput.value);
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDistortionWet[selectedSound][currentPattern][selectedExtraStep] = distortionValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -832,10 +1117,22 @@ distortionInput.addEventListener("input", () => {
         pitch: extraPitch[selectedSound][currentPattern][selectedExtraStep] || 0,
         wet: extraPitchMix[selectedSound][currentPattern][selectedExtraStep] || 1
       });
-      const distortion = new Tone.Distortion({ wet: distortionValue });
+      const distortion = new Tone.Distortion({
+        distortion: 0.5,
+        wet: distortionValue
+      });
+      const delay = new Tone.FeedbackDelay({
+        delayTime: subdivisions[extraDelayTime[selectedSound][currentPattern][selectedExtraStep] || 3]?.time || "4n",
+        feedback: extraDelayFeedback[selectedSound][currentPattern][selectedExtraStep] || 0.3,
+        wet: extraDelayMix[selectedSound][currentPattern][selectedExtraStep] || 0
+      });
+      const delayFilter = new Tone.Filter({
+        frequency: extraDelayFilterFreq[selectedSound][currentPattern][selectedExtraStep] || 5000,
+        type: "lowpass"
+      });
       const panner = new Tone.Panner(extraPanning[selectedSound][currentPattern][selectedExtraStep] || 0);
       const gain = new Tone.Gain(extraVolumes[selectedSound][currentPattern][selectedExtraStep] || 0.8);
-      player.chain(pitchShift, distortion, panner, gain, Tone.Destination);
+      player.chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
     }
   } else if (isVariationSubsequencer) {
     variationDistortionWet[selectedSound][currentPattern] = distortionValue;
@@ -845,10 +1142,11 @@ distortionInput.addEventListener("input", () => {
     mainDistortions[selectedSound].wet.value = distortionValue;
   }
 });
+
 distortionInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   distortionInput.value = 0;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDistortionWet[selectedSound][currentPattern][selectedExtraStep] = 0;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -857,10 +1155,22 @@ distortionInput.addEventListener("dblclick", () => {
         pitch: extraPitch[selectedSound][currentPattern][selectedExtraStep] || 0,
         wet: extraPitchMix[selectedSound][currentPattern][selectedExtraStep] || 1
       });
-      const distortion = new Tone.Distortion({ wet: 0 });
+      const distortion = new Tone.Distortion({
+        distortion: 0.5,
+        wet: 0
+      });
+      const delay = new Tone.FeedbackDelay({
+        delayTime: subdivisions[extraDelayTime[selectedSound][currentPattern][selectedExtraStep] || 3]?.time || "4n",
+        feedback: extraDelayFeedback[selectedSound][currentPattern][selectedExtraStep] || 0.3,
+        wet: extraDelayMix[selectedSound][currentPattern][selectedExtraStep] || 0
+      });
+      const delayFilter = new Tone.Filter({
+        frequency: extraDelayFilterFreq[selectedSound][currentPattern][selectedExtraStep] || 5000,
+        type: "lowpass"
+      });
       const panner = new Tone.Panner(extraPanning[selectedSound][currentPattern][selectedExtraStep] || 0);
       const gain = new Tone.Gain(extraVolumes[selectedSound][currentPattern][selectedExtraStep] || 0.8);
-      player.chain(pitchShift, distortion, panner, gain, Tone.Destination);
+      player.chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
     }
   } else if (isVariationSubsequencer) {
     variationDistortionWet[selectedSound][currentPattern] = 0;
@@ -911,31 +1221,69 @@ document.addEventListener("keyup", (e) => {
   }
 });  
   
-function removeExtraStepSample(track, step) {
-  if (track !== "extra" || !extraStepSamples[track][currentPattern][step]) return;
+let isCKeyPressed = false;
+let isVKeyPressed = false;
+let copiedStepSettings = null;
+
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "c") {
+    isCKeyPressed = true;
+  } else if (e.key.toLowerCase() === "v") {
+    isVKeyPressed = true;
+  }
+});
+
+document.addEventListener("keyup", (e) => {
+  if (e.key.toLowerCase() === "c") {
+    isCKeyPressed = false;
+  } else if (e.key.toLowerCase() === "v") {
+    isVKeyPressed = false;
+  }
+});  
   
+function removeExtraStepSample(track, step) {
+  if (!["extra", "extra2", "extra3", "extra4"].includes(track) || !extraStepSamples[track][currentPattern][step]) return;
+
   extraStepSamples[track][currentPattern][step] = null;
   if (extraStepSamplers[track][currentPattern][step]) {
     extraStepSamplers[track][currentPattern][step].dispose();
     extraStepSamplers[track][currentPattern][step] = null;
   }
-  
-  const stepEl = document.querySelector(`[data-track="extra"][data-step="${step}"]`);
+  if (activeExtraPlayers[track] && activeExtraPlayers[track][step]) {
+    activeExtraPlayers[track][step].forEach(p => {
+      if (p.state === "started") p.stop();
+      p.dispose();
+    });
+    activeExtraPlayers[track][step] = [];
+  }
+  // Dispose of effect nodes
+  if (extraEffectNodesCache[track][currentPattern][step]) {
+    const { pitchShift, distortion, delay, delayFilter, panner, gain } = extraEffectNodesCache[track][currentPattern][step];
+    pitchShift.dispose();
+    distortion.dispose();
+    delay.dispose();
+    delayFilter.dispose();
+    panner.dispose();
+    gain.dispose();
+    delete extraEffectNodesCache[track][currentPattern][step];
+  }
+
+  const stepEl = document.querySelector(`[data-track="${track}"][data-step="${step}"]`);
   stepEl.dataset.sampleLoaded = "false";
   stepEl.classList.remove("main-active", "selected");
   sequence[track][currentPattern][step] = false;
-  
+
   const isMeasureStep = step % measures === 0 && stepEl.classList.contains("enabled");
   stepEl.classList.toggle("measure-highlight", isMeasureStep && !clickActive);
   stepEl.classList.toggle("measure-highlight-active", isMeasureStep && clickActive);
-  
+
   if (selectedExtraStep === step) {
     selectedExtraStep = null;
     updateSoundSettingsUI();
   }
 }  
 
-// Modified toggleStep function to handle extra track subsequencer
+// Modified toggleStep function (only the part for extra tracks)
 function toggleStep(track, step, isVariation) {
   if (!audioStarted) {
     alert("Please click 'Start Audio' first!");
@@ -947,115 +1295,40 @@ function toggleStep(track, step, isVariation) {
     sequence[track][currentPattern] = Array(32).fill(false);
   }
 
-  if (track !== "extra") {
+  if (!["extra", "extra2", "extra3", "extra4"].includes(track)) {
     selectedExtraStep = null;
-    document.querySelectorAll(`.sequencer[data-track="extra"] .step`).forEach(s => s.classList.remove("selected"));
-  }
+    document.querySelectorAll(`.sequencer[data-track="extra"] .step, .sequencer[data-track="extra2"] .step, .sequencer[data-track="extra3"] .step, .sequencer[data-track="extra4"] .step`).forEach(s => s.classList.remove("selected"));
 
-if (track === "extra") {
+    const currentState = sequence[track][currentPattern][step];
+    let newState;
     if (isVariation) {
-      const fileInput = document.querySelector(`.sample-input[data-sound="extra"]`);
-      fileInput.dataset.step = step;
-      fileInput.click();
-    } else if (isDKeyPressed && extraStepSamples[track][currentPattern][step]) {
-      removeExtraStepSample(track, step);
-    } else {
-      const isActive = sequence[track][currentPattern][step];
-      const isSelected = selectedExtraStep === step;
-
-      if (isActive && isSelected) {
-        sequence[track][currentPattern][step] = false;
-        stepEl.classList.remove("main-active", "selected");
-        selectedExtraStep = null;
-        if (activeExtraPlayers[step]) {
-          activeExtraPlayers[step].forEach(player => player.stop());
-          activeExtraPlayers[step] = [];
-        }
-      } else if (isActive && !isSelected) {
-        if (selectedExtraStep !== null) {
-          const prevStepEl = document.querySelector(`[data-track="extra"][data-step="${selectedExtraStep}"]`);
-          if (prevStepEl) prevStepEl.classList.remove("selected");
-        }
-        selectedExtraStep = step;
-        stepEl.classList.add("selected");
-      } else {
-        sequence[track][currentPattern][step] = true;
-        stepEl.classList.add("main-active", "selected");
-        if (selectedExtraStep !== null) {
-          const prevStepEl = document.querySelector(`[data-track="extra"][data-step="${selectedExtraStep}"]`);
-          if (prevStepEl) prevStepEl.classList.remove("selected");
-        }
-        selectedExtraStep = step;
-      }
-
-      initializeExtraSubSequence(track, currentPattern, step);
-      updateSubSteps(track);
-      updateSoundSettingsUI();
-
-      const isMeasureStep = step % measures === 0 && stepEl.classList.contains("enabled");
-      stepEl.classList.toggle("measure-highlight", isMeasureStep && !sequence[track][currentPattern][step] && !clickActive);
-      stepEl.classList.toggle("measure-highlight-active", isMeasureStep && !sequence[track][currentPattern][step] && clickActive);
-
-      const anyExtraActive = sequence["extra"][currentPattern].some(state => state);
-      const extraToggle = document.querySelector(".extra-toggle");
-      extraToggle.style.display = "block";
-      extraToggle.classList.toggle("active", anyExtraActive);
-      extraToggle.style.backgroundColor = anyExtraActive ? "#909B20" : "#909B20";
-      const monoPolyToggle = document.querySelector(".mono-poly-toggle");
-      monoPolyToggle.style.display = "none"; 
-
-      selectedSound = "extra";
-      document.querySelectorAll(".pad").forEach(p => p.classList.remove("selected"));
-      document.querySelector(`.pad[data-sound="extra"]`).classList.add("selected");
-
-      const sliders = [
-        document.getElementById("panInput"),
-        document.getElementById("volumeInput"),
-        document.getElementById("distortionInput"),
-        document.getElementById("delayMixInput"),
-        document.getElementById("delayFeedbackInput"),
-        document.getElementById("delayTimeInput"),
-        document.getElementById("delayFilterInput"),
-        document.getElementById("pitchMixInput")
-      ];
-      sliders.forEach(slider => {
-        if (slider) {
-          slider.classList.remove("main-mode", "variation-mode");
-          slider.classList.add("extra-mode");
-        }
-      });
-      
-      updateSoundSettingsUI();
-    }
-  } else {
-    const prevState = sequence[track][currentPattern][step];
-    if (isVariation) {
-      if (sequence[track][currentPattern][step] === "variation") {
-        sequence[track][currentPattern][step] = false;
-      } else if (sequence[track][currentPattern][step] === true) {
-        sequence[track][currentPattern][step] = "both";
-      } else if (sequence[track][currentPattern][step] === "both") {
-        sequence[track][currentPattern][step] = true;
-      } else {
-        sequence[track][currentPattern][step] = "variation";
+      if (currentState === false) {
+        newState = "variation"; // Right-click empty -> variation (light blue)
+      } else if (currentState === "variation") {
+        newState = false; // Right-click variation -> empty
+      } else if (currentState === true) {
+        newState = "both"; // Right-click main -> both
+      } else if (currentState === "both") {
+        newState = true; // Right-click both -> main
       }
     } else {
-      if (sequence[track][currentPattern][step] === true) {
-        sequence[track][currentPattern][step] = false;
-      } else if (sequence[track][currentPattern][step] === "variation") {
-        sequence[track][currentPattern][step] = true;
-      } else if (sequence[track][currentPattern][step] === "both") {
-        sequence[track][currentPattern][step] = "variation";
-      } else {
-        sequence[track][currentPattern][step] = true;
+      if (currentState === false) {
+        newState = true; // Left-click empty -> main (orange)
+      } else if (currentState === true) {
+        newState = false; // Left-click main -> empty
+      } else if (currentState === "variation") {
+        newState = true; // Left-click variation -> main
+      } else if (currentState === "both") {
+        newState = "variation"; // Left-click both -> variation
       }
     }
-    stepEl.classList.toggle("main-active", sequence[track][currentPattern][step] === true || sequence[track][currentPattern][step] === "both");
-    stepEl.classList.toggle("variation-active", sequence[track][currentPattern][step] === "variation" || sequence[track][currentPattern][step] === "both");
+    sequence[track][currentPattern][step] = newState;
+    stepEl.classList.toggle("main-active", newState === true || newState === "both");
+    stepEl.classList.toggle("variation-active", newState === "variation" || newState === "both");
     const isMeasureStep = step % measures === 0 && stepEl.classList.contains("enabled");
     stepEl.classList.toggle("measure-highlight", isMeasureStep && !sequence[track][currentPattern][step] && !clickActive);
     stepEl.classList.toggle("measure-highlight-active", isMeasureStep && !sequence[track][currentPattern][step] && clickActive);
-    if (isVariation && prevState !== sequence[track][currentPattern][step]) {
+    if (isVariation && currentState !== newState) {
       refreshPannerConnections(track, true);
     }
 
@@ -1079,22 +1352,164 @@ if (track === "extra") {
       }
     });
 
-    const extraSteps = document.querySelectorAll(`.sequencer[data-track="extra"] .step`);
-    extraSteps.forEach((s, i) => {
-      s.classList.toggle("main-active", sequence["extra"][currentPattern][i]);
+    // Update only the selected track's steps
+    const trackSteps = document.querySelectorAll(`.sequencer[data-track="${track}"] .step`);
+    trackSteps.forEach((s, i) => {
+      const stepState = sequence[track][currentPattern][i];
+      s.classList.toggle("main-active", stepState === true || stepState === "both");
+      s.classList.toggle("variation-active", stepState === "variation" || stepState === "both");
       const isExtraMeasureStep = i % measures === 0 && s.classList.contains("enabled");
-      s.classList.toggle("measure-highlight", isExtraMeasureStep && !sequence["extra"][currentPattern][i] && !clickActive);
-      s.classList.toggle("measure-highlight-active", isExtraMeasureStep && !sequence["extra"][currentPattern][i] && clickActive);
-      s.classList.remove("selected"); 
-      s.setAttribute("data-sample-loaded", extraStepSamples["extra"][currentPattern][i] ? "true" : "false");
+      s.classList.toggle("measure-highlight", isExtraMeasureStep && !stepState && !clickActive);
+      s.classList.toggle("measure-highlight-active", isExtraMeasureStep && !stepState && clickActive);
     });
 
-    const anyExtraActive = sequence["extra"][currentPattern].some(state => state);
-    const extraToggle = document.querySelector(".extra-toggle");
-    extraToggle.style.display = anyExtraActive ? "block" : "none";
-    extraToggle.classList.toggle("active", anyExtraActive);
-
     updateSoundSettingsUI();
+  } else {
+    // Existing code for extra tracks (unchanged)
+    if (isCKeyPressed) {
+      // Copy step settings
+      copiedStepSettings = {
+        isActive: sequence[track][currentPattern][step],
+        sample: extraStepSamples[track][currentPattern][step],
+        file: extraStepSamples[track][currentPattern][step] ? extraStepSamplers[track][currentPattern][step]?.buffer?._source?.file : null,
+        panning: extraPanning[track][currentPattern][step] || 0,
+        volume: extraVolumes[track][currentPattern][step] || 0.8,
+        pitch: extraPitch[track][currentPattern][step] || 0,
+        pitchMix: extraPitchMix[track][currentPattern][step] || 1,
+        distortion: extraDistortionWet[track][currentPattern][step] || 0,
+        delayMix: extraDelayMix[track][currentPattern][step] || 0,
+        delayFeedback: extraDelayFeedback[track][currentPattern][step] || 0.3,
+        delayTime: extraDelayTime[track][currentPattern][step] || 3,
+        delayFilter: extraDelayFilterFreq[track][currentPattern][step] || 5000,
+        mode: extraMonoPoly[track][currentPattern] || "step",
+        subSequence: extraSubSequences[track][currentPattern][step]?.slice() || Array(32).fill(false),
+        substepCount: extraSubstepCounts[track][currentPattern][step] || 1
+      };
+      console.log(`Copied settings for ${track} track, step ${step}`);
+      return;
+    }
+    // Paste step settings
+    if (isVKeyPressed && copiedStepSettings) {
+      sequence[track][currentPattern][step] = copiedStepSettings.isActive;
+      extraStepSamples[track][currentPattern][step] = copiedStepSettings.sample;
+      extraPanning[track][currentPattern][step] = copiedStepSettings.panning;
+      extraVolumes[track][currentPattern][step] = copiedStepSettings.volume;
+      extraPitch[track][currentPattern][step] = copiedStepSettings.pitch;
+      extraPitchMix[track][currentPattern][step] = copiedStepSettings.pitchMix;
+      extraDistortionWet[track][currentPattern][step] = copiedStepSettings.distortion;
+      extraDelayMix[track][currentPattern][step] = copiedStepSettings.delayMix;
+      extraDelayFeedback[track][currentPattern][step] = copiedStepSettings.delayFeedback;
+      extraDelayTime[track][currentPattern][step] = copiedStepSettings.delayTime;
+      extraDelayFilterFreq[track][currentPattern][step] = copiedStepSettings.delayFilter;
+      extraMonoPoly[track][currentPattern] = copiedStepSettings.mode;
+      extraSubSequences[track][currentPattern][step] = copiedStepSettings.subSequence.slice();
+      extraSubstepCounts[track][currentPattern][step] = copiedStepSettings.substepCount;
+
+      if (copiedStepSettings.sample && copiedStepSettings.file) {
+        try {
+          const url = URL.createObjectURL(copiedStepSettings.file);
+          extraStepSamplers[track][currentPattern][step]?.dispose();
+          extraStepSamplers[track][currentPattern][step] = new Tone.Player({
+            url: url,
+            onload: () => {
+              console.log(`Pasted sample loaded for ${track} track, step ${step}`);
+              URL.revokeObjectURL(url);
+              updateTrackUI();
+            },
+            onerror: (error) => {
+              console.error(`Failed to load pasted sample for ${track} track, step ${step}:`, error);
+              extraStepSamples[track][currentPattern][step] = null;
+              extraStepSamplers[track][currentPattern][step] = null;
+              updateTrackUI();
+            }
+          }).toDestination();
+        } catch (error) {
+          console.error(`Error creating Tone.Player for pasted step ${step}:`, error);
+          extraStepSamples[track][currentPattern][step] = null;
+          extraStepSamplers[track][currentPattern][step] = null;
+          updateTrackUI();
+        }
+      } else {
+        extraStepSamplers[track][currentPattern][step] = null;
+      }
+      updateTrackUI();
+      console.log(`Pasted settings for ${track} track, step ${step}`);
+      return;
+} else if (isVariation) {
+      const fileInput = document.querySelector(`.sample-input[data-sound="${track}"]`);
+      fileInput.dataset.step = step;
+      fileInput.click();
+    } else if (isDKeyPressed && extraStepSamples[track][currentPattern][step]) {
+      removeExtraStepSample(track, step);
+    } else {
+// Update the selected track's pad to turn green
+      document.querySelectorAll(".pad").forEach(p => p.classList.remove("selected"));
+      document.querySelector(`.pad[data-sound="${track}"]`).classList.add("selected");
+      const isActive = sequence[track][currentPattern][step];
+      const isSelected = selectedExtraStep === step;
+
+      // Clear previous selections for ALL extra tracks
+      document.querySelectorAll(`.sequencer[data-track="extra"] .step, .sequencer[data-track="extra2"] .step, .sequencer[data-track="extra3"] .step, .sequencer[data-track="extra4"] .step`).forEach(s => {
+        s.classList.remove("selected");
+      });
+      selectedExtraStep = null;
+
+      if (isActive && isSelected) {
+        sequence[track][currentPattern][step] = false;
+        stepEl.classList.remove("main-active", "selected");
+        if (activeExtraPlayers[step]) {
+          activeExtraPlayers[step].forEach(player => player.stop());
+          activeExtraPlayers[step] = [];
+        }
+      } else if (isActive && !isSelected) {
+        selectedExtraStep = step;
+        stepEl.classList.add("selected");
+      } else {
+        sequence[track][currentPattern][step] = true;
+        stepEl.classList.add("main-active", "selected");
+        selectedExtraStep = step;
+        if (!activeExtraPlayers[step]) activeExtraPlayers[step] = [];
+      }
+      stepEl.dataset.sampleLoaded = extraStepSamples[track][currentPattern][step] ? "true" : "false";
+      initializeExtraSubSequence(track, currentPattern, step);
+      updateSubSteps(track);
+      updateSoundSettingsUI();
+
+      const isMeasureStep = step % measures === 0 && stepEl.classList.contains("enabled");
+      stepEl.classList.toggle("measure-highlight", isMeasureStep && !sequence[track][currentPattern][step] && !clickActive);
+      stepEl.classList.toggle("measure-highlight-active", isMeasureStep && !sequence[track][currentPattern][step] && clickActive);
+
+      const anyExtraActive = sequence[track][currentPattern].some(state => state);
+      const extraToggle = document.querySelector(".extra-toggle");
+      extraToggle.style.display = anyExtraActive ? "block" : "none";
+      extraToggle.classList.toggle("active", anyExtraActive);
+      extraToggle.style.backgroundColor = anyExtraActive ? "#909B20" : "#909B20";
+      const monoPolyToggle = document.querySelector(".mono-poly-toggle");
+      monoPolyToggle.style.display = "none";
+
+      selectedSound = track;
+      document.querySelectorAll(".pad").forEach(p => p.classList.remove("selected"));
+      document.querySelector(`.pad[data-sound="${track}"]`).classList.add("selected");
+
+      const sliders = [
+        document.getElementById("panInput"),
+        document.getElementById("volumeInput"),
+        document.getElementById("distortionInput"),
+        document.getElementById("delayMixInput"),
+        document.getElementById("delayFeedbackInput"),
+        document.getElementById("delayTimeInput"),
+        document.getElementById("delayFilterInput"),
+        document.getElementById("pitchMixInput")
+      ];
+      sliders.forEach(slider => {
+        if (slider) {
+          slider.classList.remove("main-mode", "variation-mode");
+          slider.classList.add("extra-mode");
+        }
+      });
+
+      updateSoundSettingsUI();
+    }
   }
 }
 
@@ -1109,10 +1524,18 @@ document.querySelectorAll(".pad").forEach(pad => {
     
     if (sound !== "extra") {
       selectedExtraStep = null;
-      document.querySelectorAll(`.sequencer[data-track="extra"] .step`).forEach(s => s.classList.remove("selected"));
+      document.querySelectorAll(`.sequencer[data-track="extra"] .step, .sequencer[data-track="extra2"] .step, .sequencer[data-track="extra3"] .step, .sequencer[data-track="extra4"] .step`).forEach(s => s.classList.remove("selected"));
     }
 
     selectedSound = sound;
+    if (["extra", "extra2", "extra3", "extra4"].includes(sound)) {
+  const toggle = document.querySelector(`.extra-mode-toggle[data-sound="${sound}"]`);
+  if (toggle) {
+    const mode = extraMonoPoly[sound][currentPattern] || "step";
+    toggle.dataset.mode = mode;
+    toggle.textContent = mode.toUpperCase();
+  }
+}
     
     const extraSteps = document.querySelectorAll(`.sequencer[data-track="extra"] .step`);
     extraSteps.forEach((s, i) => {
@@ -1145,16 +1568,18 @@ document.querySelectorAll(".pad").forEach(pad => {
     updateSubSteps(sound);
     updateSoundSettingsUI();
     refreshPannerConnections(sound, isVariationSubsequencer);
-    if (loadedSamples[note] && samplers[sound].loaded) {
-      const player = new Tone.Player({
-        url: loadedSamples[note],
-        autostart: false,
-        onload: () => {
-          player.start(Tone.now() + 0.01); 
-          player.onended = () => player.dispose();
-        },
-        onerror: (error) => console.error(`Failed to play clean sample for ${sound}: ${error}`)
-      }).toDestination();
+    if (sound !== "extra" && !isPlaying) {
+      if (loadedSamples[note] && samplers[sound].loaded) {
+        const player = new Tone.Player({
+          url: loadedSamples[note],
+          autostart: false,
+          onload: () => {
+            player.start(Tone.now() + 0.01); 
+            player.onended = () => player.dispose();
+          },
+          onerror: (error) => console.error(`Failed to play clean sample for ${sound}: ${error}`)
+        }).toDestination();
+      }
     }
     pad.classList.add("active");
     setTimeout(() => pad.classList.remove("active"), 100);
@@ -1178,7 +1603,8 @@ function updateTrackSteps(track, stepCount) {
     step.classList.toggle("measure-highlight-active", isMeasureStep && !sequence[track][currentPattern]?.[i] && clickActive);
   });
 }
-// Modified updateSubSteps function to handle extra track subsequencer
+
+// Modified toggleSubStep to handle extra track subsequencer
 function updateSubSteps(track) {
   if (!track || !tracks.includes(track)) {
     console.error(`Invalid track for updateSubSteps: ${track}`);
@@ -1188,7 +1614,7 @@ function updateSubSteps(track) {
   const pattern = currentPattern;
   let subSequence, substepCount;
 
-  if (track === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(track) && selectedExtraStep !== null) {
     initializeExtraSubSequence(track, pattern, selectedExtraStep);
     subSequence = extraSubSequences[track][pattern][selectedExtraStep];
     substepCount = extraSubstepCounts[track][pattern][selectedExtraStep];
@@ -1200,7 +1626,7 @@ function updateSubSteps(track) {
   if (!subSequence) {
     const newSequence = Array(32).fill(false);
     newSequence[0] = true;
-    if (track === "extra" && selectedExtraStep !== null) {
+    if (["extra", "extra2", "extra3", "extra4"].includes(track) && selectedExtraStep !== null) {
       extraSubSequences[track][pattern][selectedExtraStep] = newSequence;
       extraSubstepCounts[track][pattern][selectedExtraStep] = 1;
     } else if (isVariation) {
@@ -1221,63 +1647,56 @@ function updateSubSteps(track) {
     if (!step) return;
     const isEnabled = i < substepCount;
     step.classList.toggle("enabled", isEnabled);
-    step.classList.toggle("active", subSequence?.[i] && isEnabled);
-    step.classList.toggle("main-active", subSequence?.[i] && isEnabled && !isVariation && track !== "extra");
-    step.classList.toggle("variation-active", subSequence?.[i] && isEnabled && isVariation && track !== "extra");
-    step.classList.toggle("extra-active", subSequence?.[i] && isEnabled && track === "extra");
+    step.classList.remove("active", "main-active", "variation-active", "extra-active");
+    
+    if (subSequence?.[i] && isEnabled) {
+      if (["extra", "extra2", "extra3", "extra4"].includes(track)) {
+        step.classList.add("active", "extra-active");
+      } else if (isVariation) {
+        step.classList.add("active", "variation-active");
+      } else {
+        step.classList.add("active", "main-active");
+      }
+    }
   });
   
   document.getElementById("substepsInput").value = substepCount;
 }
-
-// Modified toggleSubStep to handle extra track subsequencer
-function toggleSubStep(step) {
+  
+  function toggleSubStep(step) {
   if (!audioStarted || !selectedSound) {
     alert("Please click 'Start Audio' and select a sound first!");
     return;
   }
-  const stepEl = document.querySelector(`[data-track="secondary"][data-step="${step}"]`);
-  if (!stepEl) {
-    console.error(`No step element found for step ${step} in secondary sequencer`);
+  if (!tracks.includes(selectedSound)) {
+    console.error(`Invalid track for toggleSubStep: ${selectedSound}`);
     return;
   }
-  if (!stepEl.classList.contains("enabled")) return;
+  const pattern = currentPattern;
+  let subSequence, substepCount;
 
-  let subSequenceContainer;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
-    initializeExtraSubSequence(selectedSound, currentPattern, selectedExtraStep);
-    subSequenceContainer = extraSubSequences[selectedSound][currentPattern][selectedExtraStep];
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
+    initializeExtraSubSequence(selectedSound, pattern, selectedExtraStep);
+    subSequence = extraSubSequences[selectedSound][pattern][selectedExtraStep];
+    substepCount = extraSubstepCounts[selectedSound][pattern][selectedExtraStep];
   } else {
-    subSequenceContainer = isVariationSubsequencer ? variationSubSequences[selectedSound] : mainSubSequences[selectedSound];
+    subSequence = isVariationSubsequencer ? variationSubSequences[selectedSound][pattern] : mainSubSequences[selectedSound][pattern];
+    substepCount = isVariationSubsequencer ? variationSubstepCounts[selectedSound][pattern] : mainSubstepCounts[selectedSound][pattern];
   }
 
-  if (!subSequenceContainer[currentPattern]) {
-    subSequenceContainer[currentPattern] = Array(32).fill(false);
-    subSequenceContainer[currentPattern][0] = true; 
-  }
-
-  let subSequence;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
-    subSequence = extraSubSequences[selectedSound][currentPattern][selectedExtraStep];
-  } else {
-    subSequence = subSequenceContainer[currentPattern];
-  }
+  if (!subSequence || step >= substepCount) return;
 
   subSequence[step] = !subSequence[step];
-  stepEl.classList.toggle("active", subSequence[step]);
-  stepEl.classList.toggle("main-active", subSequence[step] && !isVariationSubsequencer && selectedSound !== "extra");
-  stepEl.classList.toggle("variation-active", subSequence[step] && isVariationSubsequencer && selectedSound !== "extra");
-  stepEl.classList.toggle("extra-active", subSequence[step] && selectedSound === "extra");
-}
 
-function updateAllSteps(stepCount) {
-  tracks.forEach(track => {
-    if (!trackStepLocks[track]) {
-      trackStepCounts[track] = stepCount;
-      document.querySelector(`.track-steps-input[data-sound="${track}"]`).value = stepCount;
-      updateTrackSteps(track, stepCount);
-    }
-  });
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
+    extraSubSequences[selectedSound][pattern][selectedExtraStep] = subSequence;
+  } else if (isVariationSubsequencer) {
+    variationSubSequences[selectedSound][pattern] = subSequence;
+  } else {
+    mainSubSequences[selectedSound][pattern] = subSequence;
+  }
+
+  updateSubSteps(selectedSound);
 }
   
 function updateSoundSettingsUI() {
@@ -1292,7 +1711,7 @@ function updateSoundSettingsUI() {
     pitchInput: document.getElementById("pitchInput"),
     pitchMixInput: document.getElementById("pitchMixInput"),
     monoPolyToggle: document.querySelector(".mono-poly-toggle"),
-    extraModeToggle: document.querySelector(".extra-mode-toggle"),
+    extraModeToggle: document.querySelector(".extra-mode-toggle"), // This line is fine
     secondaryName: document.querySelector(".secondary-name")
   };
 
@@ -1325,21 +1744,26 @@ function updateSoundSettingsUI() {
     return;
   }
 
-  if (selectedSound === "extra") {
-    subsequencerTogglesDiv.style.display = "none";
-    extraToggle.style.display = "block";
-    elements.monoPolyToggle.style.display = "none";
-    elements.monoPolyToggle.disabled = true;
-    elements.extraModeToggle.style.display = "flex";
-    elements.extraModeToggle.disabled = false;
-  } else {
-    subsequencerTogglesDiv.style.display = "flex";
-    extraToggle.style.display = "none";
-    elements.monoPolyToggle.style.display = "flex";
-    elements.monoPolyToggle.disabled = false;
-    elements.extraModeToggle.style.display = "none";
-    elements.extraModeToggle.disabled = true;
+  const isExtraTrack = ["extra", "extra2", "extra3", "extra4"].includes(selectedSound);
+
+// Set visibility of toggles based on track type
+subsequencerTogglesDiv.style.display = isExtraTrack ? "none" : "flex";
+extraToggle.style.display = isExtraTrack ? "block" : "none";
+elements.monoPolyToggle.style.display = isExtraTrack ? "none" : "flex";
+elements.monoPolyToggle.disabled = isExtraTrack;
+document.querySelectorAll(".extra-mode-toggle").forEach(toggle => {
+  toggle.style.display = "flex"; // Always show extra mode toggles
+  if (toggle.dataset.sound === selectedSound) {
+    toggle.dataset.mode = extraMonoPoly[selectedSound][currentPattern] || "step";
+    toggle.textContent = toggle.dataset.mode.toUpperCase();
   }
+});
+
+  // Update toggle colors for subsequencer toggles
+  subsequencerTogglesDiv.querySelectorAll(".subsequencer-toggle").forEach(toggle => {
+    toggle.classList.toggle("main-active", toggle.dataset.mode === "main" && !isVariationSubsequencer && !isExtraTrack);
+    toggle.classList.toggle("variation-active", toggle.dataset.mode === "variation" && isVariationSubsequencer && !isExtraTrack);
+  });
 
   if (!isVariationSubsequencer) {
     mainPanning[selectedSound][currentPattern] = mainPanning[selectedSound][currentPattern] ?? 0;
@@ -1352,7 +1776,7 @@ function updateSoundSettingsUI() {
     mainPitch[selectedSound][currentPattern] = mainPitch[selectedSound][currentPattern] ?? 0;
     mainPitchMix[selectedSound][currentPattern] = mainPitchMix[selectedSound][currentPattern] ?? 0;
     mainMonoPoly[selectedSound][currentPattern] = mainMonoPoly[selectedSound][currentPattern] ?? "mono";
-    if (selectedSound === "extra") {
+    if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound)) {
       extraMonoPoly[selectedSound][currentPattern] = extraMonoPoly[selectedSound][currentPattern] ?? "step";
     }
   } else {
@@ -1390,7 +1814,7 @@ function updateSoundSettingsUI() {
   elements.pitchInput.disabled = false;
   elements.pitchMixInput.disabled = false;
 
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     elements.panInput.value = extraPanning[selectedSound][currentPattern][selectedExtraStep] || 0;
     elements.volumeInput.value = extraVolumes[selectedSound][currentPattern][selectedExtraStep] || 0.8;
     elements.pitchInput.value = extraPitch[selectedSound][currentPattern][selectedExtraStep] || 0;
@@ -1434,7 +1858,7 @@ function updateSoundSettingsUI() {
   panner.pan.setValueAtTime(panValue, Tone.now());
   gain.gain.setValueAtTime(volumeValue, Tone.now());
   distortion.wet.setValueAtTime(distortionValue, Tone.now());
-  delay.wet.setValueAtTime(1, Tone.now());
+  delay.wet.setValueAtTime(delayMixValue, Tone.now());
   delayGain.gain.setValueAtTime(delayMixValue * 0.8, Tone.now());
   delay.feedback.setValueAtTime(delayFeedbackValue, Tone.now());
   delay.delayTime.setValueAtTime(subdivisions[delayTimeValue]?.time || "4n", Tone.now());
@@ -1455,7 +1879,7 @@ function updateSoundSettingsUI() {
   sliders.forEach(slider => {
     if (slider) {
       slider.classList.remove("main-mode", "variation-mode", "extra-mode");
-      if (selectedSound === "extra") {
+      if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound)) {
         slider.classList.add("extra-mode");
       } else {
         slider.classList.add(isVariationSubsequencer ? "variation-mode" : "main-mode");
@@ -1463,18 +1887,19 @@ function updateSoundSettingsUI() {
     }
   });
 
-  if (selectedSound === "extra" && selectedExtraStep !== null && extraStepSamples["extra"][currentPattern][selectedExtraStep]) {
-    const sampleUrl = extraStepSamples["extra"][currentPattern][selectedExtraStep];
+// Modified part of updateSoundSettingsUI function
+if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null && extraStepSamples[selectedSound][currentPattern][selectedExtraStep]) {
+    const sampleUrl = extraStepSamples[selectedSound][currentPattern][selectedExtraStep];
     const fileName = sampleUrl.split('/').pop().split('#')[0].split('?')[0];
     const decodedFileName = decodeURIComponent(fileName);
     const cleanFileName = decodedFileName.replace(/\.[^/.]+$/, "");
     elements.secondaryName.value = cleanFileName;
-  } else if (selectedSound === "extra") {
+} else if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound)) {
     elements.secondaryName.value = "No Sample";
-  } else {
+} else {
     const note = notes[tracks.indexOf(selectedSound)];
     elements.secondaryName.value = soundNames[note] || selectedSound;
-  }
+}
 }
 
 function updateClickUI() {
@@ -1491,6 +1916,12 @@ document.querySelectorAll(".pad").forEach(pad => {
     }
     const sound = pad.dataset.sound;
     const note = pad.dataset.note;
+    
+    if (sound !== "extra") {
+      selectedExtraStep = null;
+      document.querySelectorAll(`.sequencer[data-track="extra"] .step, .sequencer[data-track="extra2"] .step, .sequencer[data-track="extra3"] .step, .sequencer[data-track="extra4"] .step`).forEach(s => s.classList.remove("selected"));
+    }
+
     selectedSound = sound;
     
     const extraSteps = document.querySelectorAll(`.sequencer[data-track="extra"] .step`);
@@ -1499,11 +1930,7 @@ document.querySelectorAll(".pad").forEach(pad => {
       const isExtraMeasureStep = i % measures === 0 && s.classList.contains("enabled");
       s.classList.toggle("measure-highlight", isExtraMeasureStep && !sequence["extra"][currentPattern][i] && !clickActive);
       s.classList.toggle("measure-highlight-active", isExtraMeasureStep && !sequence["extra"][currentPattern][i] && clickActive);
-      if (i === selectedExtraStep) {
-        s.classList.add("selected");
-      } else {
-        s.classList.remove("selected");
-      }
+      s.classList.remove("selected"); 
       s.setAttribute("data-sample-loaded", extraStepSamples["extra"][currentPattern][i] ? "true" : "false");
     });
 
@@ -1528,16 +1955,18 @@ document.querySelectorAll(".pad").forEach(pad => {
     updateSubSteps(sound);
     updateSoundSettingsUI();
     refreshPannerConnections(sound, isVariationSubsequencer);
-    if (loadedSamples[note] && samplers[sound].loaded) {
-      const player = new Tone.Player({
-        url: loadedSamples[note],
-        autostart: false,
-        onload: () => {
-          player.start(Tone.now() + 0.01); 
-          player.onended = () => player.dispose();
-        },
-        onerror: (error) => console.error(`Failed to play clean sample for ${sound}: ${error}`)
-      }).toDestination();
+    if (sound !== "extra" && !isPlaying) {
+      if (loadedSamples[note] && samplers[sound].loaded) {
+        const player = new Tone.Player({
+          url: loadedSamples[note],
+          autostart: false,
+          onload: () => {
+            player.start(Tone.now() + 0.01); 
+            player.onended = () => player.dispose();
+          },
+          onerror: (error) => console.error(`Failed to play clean sample for ${sound}: ${error}`)
+        }).toDestination();
+      }
     }
     pad.classList.add("active");
     setTimeout(() => pad.classList.remove("active"), 100);
@@ -1812,6 +2241,10 @@ document.querySelectorAll(".mute-pad").forEach(pad => {
   });
 });
 
+document.querySelectorAll(".extra-mode-toggle").forEach(toggle => {
+  toggle.style.display = "flex"; // Always show STEP/NEXT/FULL buttons
+});    
+    
 const substepsInput = document.getElementById("substepsInput");
 
 // Modified updateSubsteps to handle main and variation substeps independently
@@ -1823,7 +2256,7 @@ const updateSubsteps = () => {
   let count = parseInt(substepsInput.value, 10);
   if (isNaN(count)) {
     substepsInput.value = 1;
-    if (selectedSound === "extra" && selectedExtraStep !== null) {
+    if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
       extraSubstepCounts[selectedSound][currentPattern][selectedExtraStep] = 1;
     } else {
       if (isVariationSubsequencer) {
@@ -1838,7 +2271,7 @@ const updateSubsteps = () => {
   if (count < 1) count = 1;
   if (count > 32) count = 32;
 
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraSubstepCounts[selectedSound][currentPattern][selectedExtraStep] = count;
     if (!extraSubSequences[selectedSound][currentPattern]) {
       extraSubSequences[selectedSound][currentPattern] = {};
@@ -1884,25 +2317,6 @@ const updateSubsteps = () => {
   updateSubSteps(selectedSound);
 };
 
-const subdivisions = [
-  { label: "1n", value: 0, time: "1n" },
-  { label: "1n.", value: 1, time: "1n." },
-  { label: "2n", value: 2, time: "2n" },
-  { label: "2n.", value: 3, time: "2n." },
-  { label: "4n", value: 4, time: "4n" },
-  { label: "4n.", value: 5, time: "4n." },
-  { label: "4t", value: 6, time: "4t" },
-  { label: "8n", value: 7, time: "8n" },
-  { label: "8n.", value: 8, time: "8n." },
-  { label: "8t", value: 9, time: "8t" },
-  { label: "16n", value: 10, time: "16n" },
-  { label: "16n.", value: 11, time: "16n." },
-  { label: "16t", value: 12, time: "16t" },
-  { label: "32n", value: 13, time: "32n" },
-  { label: "32n.", value: 14, time: "32n." },
-  { label: "32t", value: 15, time: "32t" }
-];
-
 const delayMixInput = document.getElementById("delayMixInput");
 delayMixInput.addEventListener("input", () => {
   if (!audioStarted || !selectedSound) return;
@@ -1910,46 +2324,26 @@ delayMixInput.addEventListener("input", () => {
   if (isNaN(mixValue) || mixValue < 0) mixValue = 0;
   if (mixValue > 1) mixValue = 1;
   delayMixInput.value = mixValue;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayMix[selectedSound][currentPattern][selectedExtraStep] = mixValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
-      const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
-      player.disconnect();
-      const pitchShift = new Tone.PitchShift({
-        pitch: extraPitch[selectedSound][currentPattern][selectedExtraStep] || 0,
-        wet: extraPitchMix[selectedSound][currentPattern][selectedExtraStep] || 1
-      });
-      const distortion = new Tone.Distortion({
-        distortion: 0.5,
-        wet: extraDistortionWet[selectedSound][currentPattern][selectedExtraStep] || 0
-      });
-      const delay = new Tone.FeedbackDelay({
-        delayTime: subdivisions[extraDelayTime[selectedSound][currentPattern][selectedExtraStep] || 3]?.time || "4n",
-        feedback: extraDelayFeedback[selectedSound][currentPattern][selectedExtraStep] || 0.3,
-        wet: mixValue
-      });
-      const delayFilter = new Tone.Filter({
-        frequency: extraDelayFilterFreq[selectedSound][currentPattern][selectedExtraStep] || 5000,
-        type: "lowpass"
-      });
-      const panner = new Tone.Panner(extraPanning[selectedSound][currentPattern][selectedExtraStep] || 0);
-      const gain = new Tone.Gain(extraVolumes[selectedSound][currentPattern][selectedExtraStep] || 0.8);
-      player.chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
+      const { delay } = extraEffectNodesCache[selectedSound][currentPattern][selectedExtraStep];
+      delay.wet.setValueAtTime(mixValue, Tone.now());
     }
   } else if (isVariationSubsequencer) {
     variationDelayMix[selectedSound][currentPattern] = mixValue;
-    variationDelays[selectedSound].wet.value = 1;
-    variationDelayGains[selectedSound].gain.value = mixValue * 0.8;
+    variationDelays[selectedSound].wet.setValueAtTime(mixValue, Tone.now());
+    variationDelayGains[selectedSound].gain.setValueAtTime(mixValue * 0.8, Tone.now());
   } else {
     mainDelayMix[selectedSound][currentPattern] = mixValue;
-    mainDelays[selectedSound].wet.value = 1;
-    mainDelayGains[selectedSound].gain.value = mixValue * 0.8;
+    mainDelays[selectedSound].wet.setValueAtTime(mixValue, Tone.now());
+    mainDelayGains[selectedSound].gain.setValueAtTime(mixValue * 0.8, Tone.now());
   }
 });
 delayMixInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   delayMixInput.value = 0;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayMix[selectedSound][currentPattern][selectedExtraStep] = 0;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -1992,7 +2386,7 @@ delayFeedbackInput.addEventListener("input", () => {
   if (isNaN(feedbackValue) || feedbackValue < 0) feedbackValue = 0;
   if (feedbackValue > 0.95) feedbackValue = 0.95;
   delayFeedbackInput.value = feedbackValue;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayFeedback[selectedSound][currentPattern][selectedExtraStep] = feedbackValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -2029,7 +2423,7 @@ delayFeedbackInput.addEventListener("input", () => {
 delayFeedbackInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   delayFeedbackInput.value = 0.3;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayFeedback[selectedSound][currentPattern][selectedExtraStep] = 0.3;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -2071,7 +2465,7 @@ delayTimeInput.addEventListener("input", () => {
   if (timeValue > 15) timeValue = 15;
   delayTimeInput.value = timeValue;
   const subdivision = subdivisions[timeValue]?.time || "4n";
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayTime[selectedSound][currentPattern][selectedExtraStep] = timeValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -2109,7 +2503,7 @@ delayTimeInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   delayTimeInput.value = 3;
   const subdivision = subdivisions[3]?.time || "4n";
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayTime[selectedSound][currentPattern][selectedExtraStep] = 3;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -2150,7 +2544,7 @@ delayFilterInput.addEventListener("input", () => {
   if (isNaN(filterValue) || filterValue < 20) filterValue = 20;
   if (filterValue > 22050) filterValue = 22050;
   delayFilterInput.value = filterValue;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayFilterFreq[selectedSound][currentPattern][selectedExtraStep] = filterValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -2187,7 +2581,7 @@ delayFilterInput.addEventListener("input", () => {
 delayFilterInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   delayFilterInput.value = 5000;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraDelayFilterFreq[selectedSound][currentPattern][selectedExtraStep] = 5000;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       const player = extraStepSamplers[selectedSound][currentPattern][selectedExtraStep];
@@ -2231,9 +2625,18 @@ substepsInput.addEventListener("keydown", (e) => {
   }
 });
     
-// Modified loop function to handle extra track subsequencer playback
 const loop = new Tone.Loop((time) => {
   const anySolo = tracks.some(track => trackSoloStates[track]);
+  // Count total active players across all tracks and steps
+  let totalActivePlayers = 0;
+  tracks.forEach(track => {
+    if (activeExtraPlayers[track]) {
+      Object.values(activeExtraPlayers[track]).forEach(players => {
+        totalActivePlayers += players.length;
+      });
+    }
+  });
+  console.log(`Total active players across all tracks: ${totalActivePlayers}`);
   tracks.forEach((track, i) => {
     const stepCount = trackStepCounts[track] || 16;
     if (stepCount === 0) return;
@@ -2247,57 +2650,162 @@ const loop = new Tone.Loop((time) => {
       step.style.border = stepNum === stepIndex ? "2px solid #ff0" : "1px solid #333";
       step.classList.toggle("measure-highlight", j % measures === 0 && !sequence[track][currentPattern]?.[j] && step.classList.contains("enabled") && !clickActive);
       step.classList.toggle("measure-highlight-active", j % measures === 0 && !sequence[track][currentPattern]?.[j] && step.classList.contains("enabled") && clickActive);
+      if (!["extra", "extra2", "extra3", "extra4"].includes(track)) {
+        const stepState = sequence[track][currentPattern]?.[j];
+        step.classList.toggle("main-active", stepState === true || stepState === "both");
+        step.classList.toggle("variation-active", stepState === "variation" || stepState === "both");
+      } else {
+        step.classList.toggle("main-active", sequence[track][currentPattern]?.[j]);
+      }
     });
     if (trackMuteStates[track] || (anySolo && !trackSoloStates[track])) return;
-    if (track === "extra") {
-      if (sequence[track][currentPattern]?.[stepIndex] && extraStepSamplers[track][currentPattern][stepIndex]) {
-        const player = extraStepSamplers[track][currentPattern][stepIndex];
-        if (player.loaded) {
-          const subSequence = extraSubSequences[track][currentPattern]?.[stepIndex] || Array(32).fill(false);
-          const substepCount = extraSubstepCounts[track][currentPattern]?.[stepIndex] || 1;
-          const quarterNoteDuration = Tone.Time("4n").toSeconds();
-          const substepDuration = quarterNoteDuration / substepCount;
-          for (let j = 0; j < substepCount; j++) {
-            if (subSequence[j]) {
-              const subTime = time + j * substepDuration;
-              if (extraMonoPoly[track][currentPattern] === "next") {
-                Object.keys(activeExtraPlayers).forEach(key => {
-                  if (key != stepIndex && activeExtraPlayers[key]) {
-                    activeExtraPlayers[key].forEach(p => {
-                      if (p.state === "started") {
-                        p.stop(subTime);
-                      }
-                    });
-                  }
-                });
-              }
-              player.start(subTime);
-              activeExtraPlayers[stepIndex] = [player];
-              if (track === selectedSound && selectedExtraStep === stepIndex) {
-                const substepEl = secondaryTrackDiv.querySelector(`[data-step="${j}"]`);
+// Inside the loop function, replace the extra track handling section
+if (["extra", "extra2", "extra3", "extra4"].includes(track)) {
+  if (sequence[track][currentPattern]?.[stepIndex] && extraStepSamplers[track][currentPattern][stepIndex]) {
+    const player = extraStepSamplers[track][currentPattern][stepIndex];
+    // Check if the player's buffer is valid and loaded
+    if (!player.buffer || !player.buffer.loaded) {
+      console.warn(`Skipping playback for ${track} track, step ${stepIndex}: Buffer not loaded or invalid`);
+      return;
+    }
+
+    // Ensure effect nodes are cached
+    if (!extraEffectNodesCache[track][currentPattern][stepIndex]) {
+      extraEffectNodesCache[track][currentPattern][stepIndex] = {
+        pitchShift: new Tone.PitchShift({ pitch: extraPitch[track][currentPattern][stepIndex] || 0, wet: extraPitchMix[track][currentPattern][stepIndex] || 1 }),
+        distortion: new Tone.Distortion({ distortion: 0.5, wet: extraDistortionWet[track][currentPattern][stepIndex] || 0 }),
+        delay: new Tone.FeedbackDelay({
+          delayTime: subdivisions[extraDelayTime[track][currentPattern][stepIndex] || 3]?.time || "4n",
+          feedback: extraDelayFeedback[track][currentPattern][stepIndex] || 0.3,
+          wet: extraDelayMix[track][currentPattern][stepIndex] || 0
+        }),
+        delayFilter: new Tone.Filter({ frequency: extraDelayFilterFreq[track][currentPattern][stepIndex] || 5000, type: "lowpass" }),
+        panner: new Tone.Panner(extraPanning[track][currentPattern][stepIndex] || 0),
+        gain: new Tone.Gain(extraVolumes[track][currentPattern][stepIndex] || 0.8)
+      };
+    }
+
+    const { pitchShift, distortion, delay, delayFilter, panner, gain } = extraEffectNodesCache[track][currentPattern][stepIndex];
+
+    // Update effect parameters
+    pitchShift.pitch = extraPitch[track][currentPattern][stepIndex] || 0;
+    pitchShift.wet.setValueAtTime(extraPitchMix[track][currentPattern][stepIndex] || 1, time);
+    distortion.wet.setValueAtTime(extraDistortionWet[track][currentPattern][stepIndex] || 0, time);
+    delay.delayTime.setValueAtTime(subdivisions[extraDelayTime[track][currentPattern][stepIndex] || 3]?.time || "4n", time);
+    delay.feedback.setValueAtTime(extraDelayFeedback[track][currentPattern][stepIndex] || 0.3, time);
+    delay.wet.setValueAtTime(extraDelayMix[track][currentPattern][stepIndex] || 0, time);
+    delayFilter.frequency.setValueAtTime(extraDelayFilterFreq[track][currentPattern][stepIndex] || 5000, time);
+    panner.pan.setValueAtTime(extraPanning[track][currentPattern][stepIndex] || 0, time);
+    gain.gain.setValueAtTime(extraVolumes[track][currentPattern][stepIndex] || 0.8, time);
+
+    // Connect player to effect chain
+    player.disconnect();
+    player.chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
+
+    const mode = extraMonoPoly[track][currentPattern] || "step";
+    const quarterNoteDuration = Tone.Time("4n").toSeconds();
+    const subSequence = extraSubSequences[track][currentPattern]?.[stepIndex] || Array(32).fill(false);
+    const substepCount = extraSubstepCounts[track][currentPattern]?.[stepIndex] || 1;
+    const substepDuration = quarterNoteDuration / substepCount;
+
+    // Initialize active players for this track and step
+    if (!activeExtraPlayers[track]) activeExtraPlayers[track] = {};
+    if (!activeExtraPlayers[track][stepIndex]) activeExtraPlayers[track][stepIndex] = [];
+
+    // Clear previous players for this step to prevent overlap
+    activeExtraPlayers[track][stepIndex].forEach(p => {
+      if (p.state === "started") p.stop(time);
+      p.dispose();
+    });
+    activeExtraPlayers[track][stepIndex] = [];
+
+    if (mode === "step") {
+      // STEP: Play for each active substep with new player instances
+      for (let j = 0; j < substepCount; j++) {
+        if (subSequence[j]) {
+          const subTime = time + j * substepDuration;
+          const newPlayer = new Tone.Player({
+            url: player.buffer.get(),
+            autostart: false
+          }).chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
+          newPlayer.start(subTime).stop(subTime + substepDuration);
+          activeExtraPlayers[track][stepIndex].push(newPlayer);
+          if (track === selectedSound && selectedExtraStep === stepIndex) {
+            const substepEl = secondaryTrackDiv.querySelector(`[data-step="${j}"]`);
+            if (substepEl) {
+              substepEl.classList.add("active", "extra-active");
+              setTimeout(() => {
                 if (substepEl) {
-                  substepEl.classList.add("active", "extra-active");
-                  setTimeout(() => {
-                    if (substepEl) {
-                      substepEl.classList.toggle("active", subSequence[j]);
-                      substepEl.classList.toggle("extra-active", subSequence[j]);
-                    }
-                  }, substepDuration * 1000);
+                  substepEl.classList.toggle("active", subSequence[j]);
+                  substepEl.classList.toggle("extra-active", subSequence[j]);
                 }
-              }
+              }, substepDuration * 1000);
             }
           }
-          console.log(`Active players for extra track, step ${stepIndex}: ${activeExtraPlayers[stepIndex].length}`);
         }
       }
-      if (extraMonoPoly[track][currentPattern] === "step" && activeExtraPlayers[stepIndex] && Array.isArray(activeExtraPlayers[stepIndex]) && activeExtraPlayers[stepIndex].length > 0) {
-        const quarterNoteDuration = Tone.Time("4n").toSeconds();
-        const nextStepTime = time + quarterNoteDuration;
-        const player = activeExtraPlayers[stepIndex][0];
-        if (player && player.state === "started" && player.buffer.loaded) {
-          player.stop(nextStepTime);
+    } else if (mode === "next") {
+      // NEXT: Stop all other players in this track, play until next sound
+      Object.keys(activeExtraPlayers[track]).forEach(key => {
+        if (key != stepIndex) {
+          activeExtraPlayers[track][key].forEach(p => {
+            if (p.state === "started") p.stop(time);
+            p.dispose();
+          });
+          activeExtraPlayers[track][key] = [];
+        }
+      });
+      for (let j = 0; j < substepCount; j++) {
+        if (subSequence[j]) {
+          const subTime = time + j * substepDuration;
+          const newPlayer = new Tone.Player({
+            url: player.buffer.get(),
+            autostart: false
+          }).chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
+          newPlayer.start(subTime);
+          activeExtraPlayers[track][stepIndex].push(newPlayer);
+          if (track === selectedSound && selectedExtraStep === stepIndex) {
+            const substepEl = secondaryTrackDiv.querySelector(`[data-step="${j}"]`);
+            if (substepEl) {
+              substepEl.classList.add("active", "extra-active");
+              setTimeout(() => {
+                if (substepEl) {
+                  substepEl.classList.toggle("active", subSequence[j]);
+                  substepEl.classList.toggle("extra-active", subSequence[j]);
+                }
+              }, substepDuration * 1000);
+            }
+          }
         }
       }
+    } else if (mode === "full") {
+      // FULL: Play the entire sample without stopping
+      for (let j = 0; j < substepCount; j++) {
+        if (subSequence[j]) {
+          const subTime = time + j * substepDuration;
+          const newPlayer = new Tone.Player({
+            url: player.buffer.get(),
+            autostart: false
+          }).chain(pitchShift, distortion, delay, delayFilter, panner, gain, Tone.Destination);
+          newPlayer.start(subTime);
+          activeExtraPlayers[track][stepIndex].push(newPlayer);
+          if (track === selectedSound && selectedExtraStep === stepIndex) {
+            const substepEl = secondaryTrackDiv.querySelector(`[data-step="${j}"]`);
+            if (substepEl) {
+              substepEl.classList.add("active", "extra-active");
+              setTimeout(() => {
+                if (substepEl) {
+                  substepEl.classList.toggle("active", subSequence[j]);
+                  substepEl.classList.toggle("extra-active", subSequence[j]);
+                }
+              }, substepDuration * 1000);
+            }
+          }
+        }
+      }
+    }
+  // console.log(`Active players for ${track} track, step ${stepIndex}: ${activeExtraPlayers[track][stepIndex].length}`);
+  }
     } else {
       const stepState = sequence[track][currentPattern]?.[stepIndex];
       if (stepState) {
@@ -2373,7 +2881,6 @@ const loop = new Tone.Loop((time) => {
       }
     }
   });
-
   if (clickActive) {
     if (clickSample && clickSampler.loaded) {
       clickSampler.triggerAttackRelease("C3", "8n", time);
@@ -2395,7 +2902,6 @@ const loop = new Tone.Loop((time) => {
       }
     }
   }
-
   globalStepIndex++;
 }, "4n").start(0);
 
@@ -2406,7 +2912,6 @@ async function toggleSequencer() {
   }
   if (!isPlaying) {
     tracks.forEach(track => refreshPannerConnections(track, false));
-    
     Tone.Transport.start();
     isPlaying = true;
     document.getElementById("playButton").classList.add("playing");
@@ -2415,10 +2920,26 @@ async function toggleSequencer() {
     isPlaying = false;
     globalStepIndex = 0;
     tracks.forEach(track => trackStepIndices[track] = 0);
-    
-    Object.keys(activeExtraPlayers).forEach(step => {
-      activeExtraPlayers[step].forEach(player => player.stop());
-      activeExtraPlayers[step] = [];
+    // Comprehensive cleanup for extra tracks
+    tracks.filter(t => ["extra", "extra2", "extra3", "extra4"].includes(t)).forEach(track => {
+      Object.keys(activeExtraPlayers[track] || {}).forEach(step => {
+        activeExtraPlayers[track][step].forEach(p => {
+          if (p.state === "started") p.stop();
+          p.dispose();
+        });
+        activeExtraPlayers[track][step] = [];
+      });
+      // Dispose of effect nodes
+      Object.keys(extraEffectNodesCache[track][currentPattern] || {}).forEach(step => {
+        const { pitchShift, distortion, delay, delayFilter, panner, gain } = extraEffectNodesCache[track][currentPattern][step];
+        pitchShift.dispose();
+        distortion.dispose();
+        delay.dispose();
+        delayFilter.dispose();
+        panner.dispose();
+        gain.dispose();
+        delete extraEffectNodesCache[track][currentPattern][step];
+      });
     });
     document.querySelectorAll(".step").forEach(step => step.style.border = "1px solid #333");
     if (selectedSound) {
@@ -2520,64 +3041,6 @@ bpmInput.addEventListener("keydown", (e) => {
     e.preventDefault();
     bpmInput.blur();
     bpmInput.dispatchEvent(new Event("change"));
-  }
-});
-
-document.getElementById("savePresetButton").addEventListener("click", () => {
-  if (!audioStarted) {
-    alert("Please click 'Start Audio' first!");
-    return;
-  }
-  savePreset({
-    sequence, soundNames, loadedSamples, trackStepCounts, trackStepLocks,
-    trackSoloStates, trackMuteStates, mainSubSequences, variationSubSequences,
-    mainSubstepCounts, variationSubstepCounts, mainPanning, variationPanning,
-    mainVolumes, variationVolumes, mainDistortionWet, variationDistortionWet,
-    mainMonoPoly, variationMonoPoly, selectedSound, isVariationSubsequencer,
-    measures, clickActive, globalStepIndex, mainDelayMix, variationDelayMix,
-    mainDelayFeedback, variationDelayFeedback, mainDelayTime, variationDelayTime,
-    mainDelayFilterFreq, variationDelayFilterFreq, mainPitch, variationPitch, mainPitchMix, variationPitchMix
-  });
-});
-
-document.getElementById("loadPresetButton").addEventListener("click", () => {
-  if (!audioStarted) {
-    alert("Please click 'Start Audio' first!");
-    return;
-  }
-  document.getElementById("loadPreset").click();
-});
-
-document.getElementById("loadPreset").addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-      try {
-        const preset = JSON.parse(event.target.result);
-        await loadPreset(preset, {
-          samplers, loadedSamples, soundNames, tracks, notes, sequence,
-          trackStepCounts, trackStepLocks, trackSoloStates, trackMuteStates,
-          mainSubSequences, variationSubSequences, mainSubstepCounts,
-          variationSubstepCounts, mainPanning, variationPanning, mainVolumes,
-          variationVolumes, mainDistortionWet, variationDistortions,
-          mainMonoPoly, variationMonoPoly, mainPanners, variationPanners,
-          mainGains, variationGains, mainDistortions, variationDistortions,
-          mainDelays, variationDelays, mainDelayFilters, variationDelayFilters,
-          mainDelayMix, variationDelayMix, mainDelayFeedback, variationDelayFeedback,
-          mainDelayTime, variationDelayTime, mainDelayFilterFreq, variationDelayFilterFreq,
-          selectedSound, isVariationSubsequencer, measures,
-          clickActive, globalStepIndex, isPlaying, toggleSequencer,
-          updateTrackSteps, updateSubSteps, updateSoundSettingsUI, updateClickUI, updateTrackUI,
-          refreshPannerConnections, subsequencerToggles, clickMeasuresInput
-        });
-        e.target.value = "";
-      } catch (error) {
-        console.error("Error parsing preset file:", error);
-        alert("Invalid preset file. Please select a valid JSON preset.");
-      }
-    };
-    reader.readAsText(file);
   }
 });
 
@@ -2719,6 +3182,7 @@ function updateDeleteRowButtons() {
   }
 }
 
+// Add a new row to the Song Sequencer with a play button
 function addNewRow(event) {
   if (!audioStarted) {
     alert("Please click 'Start Audio' first!");
@@ -2737,6 +3201,7 @@ function addNewRow(event) {
   newRow.className = "pattern-row";
   newRow.dataset.row = newRowIndex;
   newRow.innerHTML = `
+    <button class="song-play-button" data-tooltip="Play song from this row"></button>
     <span class="loop-label">LOOP:</span>
     <div class="loop-toggle" data-state="off" data-tooltip="Toggle loop on (green) or off (red)"></div>
     <input type="text" class="loop-count-input" value="1" data-tooltip="Set loop count (1-128) or shows current/total during playback">
@@ -2751,6 +3216,7 @@ function addNewRow(event) {
     songSequencerContainer.appendChild(newRow);
   }
 
+  // Update row indices and song step assignments
   const maxRow = rows.length;
   for (let oldRow = maxRow; oldRow > newRowIndex; oldRow--) {
     for (let step = 0; step < 16; step++) {
@@ -2766,6 +3232,8 @@ function addNewRow(event) {
   allRows.forEach((row, index) => {
     row.dataset.row = index;
   });
+
+  // Attach event listeners to new row elements
   const newSongStepsInput = newRow.querySelector(".song-steps-input");
   updateSongSteps(newRow, newSongStepsInput);
   newSongStepsInput.addEventListener("change", () => updateSongSteps(newRow, newSongStepsInput));
@@ -2776,12 +3244,14 @@ function addNewRow(event) {
       updateSongSteps(newRow, newSongStepsInput);
     }
   });
+
   const newLoopToggle = newRow.querySelector(".loop-toggle");
   newLoopToggle.addEventListener("click", () => {
     const isOn = newLoopToggle.dataset.state === "off";
     newLoopToggle.dataset.state = isOn ? "on" : "off";
     newLoopToggle.classList.toggle("on", isOn);
   });
+
   const newLoopCountInput = newRow.querySelector(".loop-count-input");
   newLoopCountInput.addEventListener("change", () => {
     let value = newLoopCountInput.value.replace(/[^0-9]/g, "");
@@ -2798,6 +3268,7 @@ function addNewRow(event) {
       newLoopCountInput.dispatchEvent(new Event("change"));
     }
   });
+
   const deleteRowButton = newRow.querySelector(".delete-row-button");
   deleteRowButton.addEventListener("click", () => {
     const songSequencerContainer = document.getElementById("songSequencerContainer");
@@ -2828,43 +3299,41 @@ function addNewRow(event) {
     });
     updateDeleteRowButtons();
   });
+
   const newAddRowButton = newRow.querySelector(".add-row-button");
   newAddRowButton.addEventListener("click", addNewRow);
+
+  // Attach event listener to the new play button
+  const newPlayButton = newRow.querySelector(".song-play-button");
+  newPlayButton.addEventListener("click", async () => {
+    if (!audioStarted) {
+      alert("Please click 'Start Audio' first!");
+      return;
+    }
+    if (!isPlaying) {
+      const rowIndex = parseInt(newRow.dataset.row);
+      const firstStep = newRow.querySelector(".song-step");
+      const stepIndex = parseInt(firstStep.dataset.step);
+      const fullIndex = `${rowIndex}-${stepIndex}`;
+      const firstPattern = songStepAssignments[fullIndex];
+      if (!firstPattern || !patterns.includes(firstPattern)) {
+        alert("Please assign a valid pattern to the first grey square in this row!");
+        return;
+      }
+
+      isPlaying = true;
+      document.getElementById("playButton").classList.add("playing");
+      newPlayButton.classList.add("playing");
+      await playSongSequence(rowIndex);
+    } else {
+      resetPlaybackState();
+    }
+  });
+
   updateDeleteRowButtons();
 }
 
-const firstDeleteRowButton = document.querySelector("#songSequencerContainer .pattern-row:first-child .delete-row-button");
-firstDeleteRowButton.addEventListener("click", () => {
-  const songSequencerContainer = document.getElementById("songSequencerContainer");
-  const rows = songSequencerContainer.querySelectorAll(".pattern-row");
-  if (rows.length <= 1) {
-    alert("You can't delete the last row!");
-    return;
-  }
-  rows[0].remove();
-  for (let step = 0; step < 16; step++) {
-    delete songStepAssignments[`0-${step}`];
-  }
-  const maxRow = rows.length - 1;
-  for (let oldRow = 1; oldRow <= maxRow; oldRow++) {
-    for (let step = 0; step < 16; step++) {
-      const oldKey = `${oldRow}-${step}`;
-      const newKey = `${oldRow - 1}-${step}`;
-      if (oldKey in songStepAssignments) {
-        songStepAssignments[newKey] = songStepAssignments[oldKey];
-        delete songStepAssignments[oldKey];
-      }
-    }
-  }
-  const remainingRows = songSequencerContainer.querySelectorAll(".pattern-row");
-  remainingRows.forEach((row, index) => {
-    row.dataset.row = index;
-  });
-  updateDeleteRowButtons();
-});
-
 const songStepAssignments = {};
-const activeExtraPlayers = {};
 function selectSongStep(step, row) {
   if (!audioStarted) {
     alert("Please click 'Start Audio' first!");
@@ -3003,14 +3472,16 @@ document.getElementById("songPlayButton").addEventListener("click", async () => 
     document.getElementById("songPlayButton").classList.add("playing");
 
 
-function playSongSequence() {
+// Modified playSongSequence to start from a specific row
+async function playSongSequence(startRowIndex = 0) {
   document.querySelectorAll(".loop-count-input").forEach(input => {
     input.dataset.original = input.value || "1";
   });
 
   const rows = document.querySelectorAll("#songSequencerContainer .pattern-row");
   return new Promise(async (resolve) => {
-    for (const row of rows) {
+    for (let r = startRowIndex; r < rows.length; r++) {
+      const row = rows[r];
       if (!isPlaying) {
         resolve();
         return;
@@ -3138,7 +3609,7 @@ pitchInput.addEventListener("change", () => {
   if (isNaN(pitchValue) || pitchValue < -24) pitchValue = -24;
   if (pitchValue > 24) pitchValue = 24;
   pitchInput.value = pitchValue;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraPitch[selectedSound][currentPattern][selectedExtraStep] = pitchValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       extraStepSamplers[selectedSound][currentPattern][selectedExtraStep].disconnect();
@@ -3159,7 +3630,7 @@ pitchInput.addEventListener("change", () => {
 pitchMixInput.addEventListener("input", () => {
   if (!audioStarted || !selectedSound) return;
   const mixValue = parseFloat(pitchMixInput.value);
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraPitchMix[selectedSound][currentPattern][selectedExtraStep] = mixValue;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       extraStepSamplers[selectedSound][currentPattern][selectedExtraStep].disconnect();
@@ -3179,7 +3650,7 @@ pitchMixInput.addEventListener("input", () => {
 pitchMixInput.addEventListener("dblclick", () => {
   if (!audioStarted || !selectedSound) return;
   pitchMixInput.value = (selectedSound === "extra") ? 1 : 0;
-  if (selectedSound === "extra" && selectedExtraStep !== null) {
+  if (["extra", "extra2", "extra3", "extra4"].includes(selectedSound) && selectedExtraStep !== null) {
     extraPitchMix[selectedSound][currentPattern][selectedExtraStep] = 1;
     if (extraStepSamplers[selectedSound][currentPattern][selectedExtraStep]) {
       extraStepSamplers[selectedSound][currentPattern][selectedExtraStep].disconnect();
